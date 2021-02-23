@@ -1,9 +1,15 @@
 import './App.css';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+ } from "react-router-dom"; 
 
 function App() {
   return (
+    <Router>
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">WiCS Database</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -22,6 +28,21 @@ function App() {
           </Form>
         </Navbar.Collapse>
       </Navbar>
+      <Switch>
+        <Route path="/Home">
+          <Sightings />
+        </Route>
+        <Route path="/plans">
+          <Plans />
+        </Route>
+        <Route path="/ufos">
+          <UFOs />
+          </Route>
+        <Route path="/">
+          <Splash />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
