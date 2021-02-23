@@ -1,6 +1,8 @@
 import './App.css';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { NavLink } from 'react-router-dom';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,15 +13,16 @@ function App() {
   return (
     <Router>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">WiCS Database</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to={'/home'}>WiCS Database</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
+            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">All Classes</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Best Rated</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to={'/best-rated'}>Best Rated</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form inline>
@@ -29,17 +32,17 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
       <Switch>
-        <Route path="/Home">
-          <Sightings />
+        <Route path="/home">
+          {/* <Home /> */}
         </Route>
-        <Route path="/plans">
-          <Plans />
+        <Route path="/all-classes">
+          {/* <Classes /> */}
         </Route>
-        <Route path="/ufos">
-          <UFOs />
-          </Route>
-        <Route path="/">
-          <Splash />
+        <Route path="/best-rated">
+          {/* <Classes /> */}
+        </Route>
+        <Route path="/form">
+          {/* <Form /> */}
         </Route>
       </Switch>
     </Router>
