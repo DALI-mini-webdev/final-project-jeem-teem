@@ -2,6 +2,7 @@ import './App.css';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
+import Classes from './components/Classes';
 
 import {
   BrowserRouter as Router,
@@ -17,7 +18,6 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to={'/home'}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
@@ -36,10 +36,10 @@ function App() {
           {/* <Home /> */}
         </Route>
         <Route path="/all-classes">
-          {/* <Classes /> */}
+          <Classes sort={'All Classes'}/>
         </Route>
         <Route path="/best-rated">
-          {/* <Classes /> */}
+          <Classes sort={'Best Rated'}/>
         </Route>
         <Route path="/form">
           {/* <Form /> */}
