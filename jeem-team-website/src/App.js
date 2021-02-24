@@ -3,6 +3,10 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 import Classes from './components/Classes';
+import Home from './components/Home';
+import UserForm from './components/UserForm';
+
+
 
 import {
   BrowserRouter as Router,
@@ -33,7 +37,7 @@ function App() {
       </Navbar>
       <Switch>
         <Route path="/home">
-          {/* <Home /> */}
+          <Home />
         </Route>
         <Route path="/all-classes">
           <Classes sort={'All Classes'}/>
@@ -42,7 +46,7 @@ function App() {
           <Classes sort={'Best Rated'}/>
         </Route>
         <Route path="/form">
-          {/* <Form /> */}
+          <UserForm />
         </Route>
       </Switch>
     </Router>
