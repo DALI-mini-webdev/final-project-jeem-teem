@@ -1,9 +1,11 @@
 import './App.css';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './jcustom.css';
 import { NavLink } from 'react-router-dom';
 import Classes from './components/Classes';
 import Home from './components/Home';
+import Landing from './components/Landing';
 import UserForm from './components/UserForm';
 
 
@@ -47,6 +49,9 @@ function App() {
         </Route>
         <Route path="/form">
           <UserForm />
+        </Route>
+        <Route exact path="">
+          <Landing />
         </Route>
       </Switch>
     </Router>

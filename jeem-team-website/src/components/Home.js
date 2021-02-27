@@ -1,4 +1,5 @@
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron} from 'react-bootstrap';
+import '../jcustom.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
@@ -14,7 +15,7 @@ class Home extends React.Component {
                 <Jumbotron>
                     <h1>Welcome to Jeem Teem's Course Database for Dartmouth Women in STEM!</h1>
                     <h5>this was built as our project for our dali-wisp final project</h5>
-                    <Button variant="primary">Learn more</Button>
+                    <button>learn more</button>
                     <p>
                         this is a React Bootstrap Jumbotron
                     </p>
