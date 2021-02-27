@@ -1,4 +1,6 @@
 import React from 'react';
+import "../jcustom.css";
+import background from "../images/Rectangle 1.jpg";
 
 class Landing extends React.Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class Landing extends React.Component {
     render() {
         return (
             <div>
-                <p>hi</p>
+                <img src={background} alt=""/>
             </div>
         )
     }
