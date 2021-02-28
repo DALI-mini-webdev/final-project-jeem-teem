@@ -4,11 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './jcustom.css';
 import { NavLink } from 'react-router-dom';
 import Classes from './components/Classes';
-import Home from './components/Home';
 import Landing from './components/Landing';
+import Home from './components/Home';
 import UserForm from './components/UserForm';
-
-
+import AllClasses from './components/AllClasses';
+import BestRated from './components/BestRated';
 
 import {
   BrowserRouter as Router,
@@ -38,21 +38,31 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/all-classes">
-          <Classes sort={'All Classes'}/>
-        </Route>
-        <Route path="/best-rated">
-          <Classes sort={'Best Rated'}/>
-        </Route>
-        <Route path="/form">
+
+        <Route exact path="/form">
           <UserForm />
         </Route>
-        <Route exact path="">
+
+        <Route exact path="/">
           <Landing />
         </Route>
+
+        <Route exact path="/home">
+          <Home />
+        </Route>
+
+        <Route exact path="/all-classes">
+          <AllClasses />
+        </Route>
+    
+        {/* <Route path="/all-classes">
+          <Classes sort={'All Classes'}/>
+        </Route> */}
+
+        <Route exact path="/best-rated">
+          <BestRated />
+        </Route>
+
       </Switch>
     </Router>
   );
