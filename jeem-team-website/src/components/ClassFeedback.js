@@ -1,5 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../jcustom.css";
+import "./form.css";
 import React from 'react';
 
 class ClassFeedback extends React.Component {
@@ -14,11 +16,11 @@ class ClassFeedback extends React.Component {
     render() {
         return (
             <div>
-                <h4>Class Info</h4>
+                <h4 className="header">Class Info</h4>
 
                 {/* drop down select for class */}
                 <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Label>Example select</Form.Label>
+                    <Form.Label className="body">Select Class</Form.Label>
                     <Form.Control as="select">
                         <option>COSC 1 Introduction to Programming and Computation</option>
                         <option>COSC 2 Programming for Interactive Audio-Visual Arts</option>
@@ -33,26 +35,26 @@ class ClassFeedback extends React.Component {
 
                 {/* prof */}
                 <Form.Group controlId="formProf">
-                    <Form.Label>Professor: </Form.Label>
+                    <Form.Label className="body">Professor: </Form.Label>
                     <Form.Control type="text" placeholder="Tom" />
 
-                    <Form.Label>Last Name: </Form.Label>
+                    <Form.Label className="body">Last Name: </Form.Label>
                     <Form.Control type="text" placeholder="Cormen" />
                 </Form.Group>
 
                 {/* review */}
                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Course Review</Form.Label>
+                    <Form.Label className="body">Course Review</Form.Label>
                     <Form.Control as="textarea" rows={3} />
                 </Form.Group>
 
                 {/* want to be contacted by underclassmen? (Y/N) */}
                 <Form.Group>
-                    <Form.Label>Do you want to be contacted with questions regarding your review and class experience?</Form.Label>
+                    <Form.Label className="body">Do you want to be contacted with questions regarding your review and class experience?</Form.Label>
                     {['radio'].map((type) => (
                         <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check inline label="yes" type={type} id={`inline-${type}-yes`} />
-                            <Form.Check inline label="no" type={type} id={`inline-${type}-no`} />
+                            <Form.Check className="body" inline label="yes" type={type} id={`inline-${type}-yes`} />
+                            <Form.Check className="body" inline label="no" type={type} id={`inline-${type}-no`} />
                         </div>
                     ))}
                 </Form.Group>

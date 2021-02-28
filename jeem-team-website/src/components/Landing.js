@@ -15,7 +15,7 @@ class Landing extends React.Component {
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
                     <title className="subtitle">We have compiled this for future women in computer science.</title>
-                    <button className="CTA">let's go!</button>
+                    <button className="btn btn-default btn-lg CTA">let's go!</button>
                 </div>
             </div>
         )
