@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import Classes from './components/Classes';
 import Home from './components/Home';
 import Landing from './components/Landing';
-import UserForm from './components/UserForm';
+import UserClassForm from './components/UserClassForm';
 
 
 
@@ -48,7 +48,7 @@ function App() {
           <Classes sort={'Best Rated'}/>
         </Route>
         <Route path="/form">
-          <UserForm />
+          <UserClassForm />
         </Route>
         <Route exact path="">
           <Landing />
