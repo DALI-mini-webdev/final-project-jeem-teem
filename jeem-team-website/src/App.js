@@ -6,9 +6,10 @@ import { NavLink } from 'react-router-dom';
 import Classes from './components/Classes';
 import Landing from './components/Landing';
 import Home from './components/Home';
-import UserForm from './components/UserForm';
+import UserClassForm from './components/UserClassForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
+
 
 import {
   BrowserRouter as Router,
@@ -40,7 +41,7 @@ function App() {
       <Switch>
 
         <Route exact path="/form">
-          <UserForm />
+          <UserClassForm />
         </Route>
 
         <Route exact path="/">
@@ -53,6 +54,7 @@ function App() {
 
         <Route exact path="/all-classes">
           <AllClasses />
+
         </Route>
     
         {/* <Route path="/all-classes">
