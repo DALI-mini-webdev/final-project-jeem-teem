@@ -3,13 +3,15 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './jcustom.css';
 import { NavLink } from 'react-router-dom';
+import Logo from'./components/jeem-logo.png'
 import Classes from './components/Classes';
 import Landing from './components/Landing';
 import Home from './components/Home';
 import UserClassForm from './components/UserClassForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
-import './components/jeem logo.svg'
+import Professors from './components/Professors';
+
 
 
 import {
@@ -21,23 +23,27 @@ import {
 function App() {
   return (
     <Router>
-      <Navbar bg="light" expand="lg">
-        <a class="navbar-brand" href="/">
-          <div class="logo-image">
-              <img src="./components/jeem logo.svg" class="img-fluid" />
-          </div>
-        </a>
-        <Navbar.Brand as={NavLink} to={'/home'}>WiCS Database</Navbar.Brand>
+      <Navbar bg="white" expand="lg">
+        <Navbar.Brand as={NavLink} to={'/home'}>
+        <a class="navbar-brand" href="#">
+            <img src={Logo} class="img-responsive" alt="WiCS Database" />
+        </a>          
+        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown title="Browse" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to={'/best-rated'}>Best Rated</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link as={NavLink} to={'/connect'}>Connect</Nav.Link> 
           </Nav>
+
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
@@ -69,6 +75,14 @@ function App() {
 
         <Route exact path="/best-rated">
           <BestRated />
+        </Route>
+
+        <Route exact path="/professors">
+          <Professors />
+        </Route>
+
+        <Route exact path="/connect">
+          <UserClassForm />
         </Route>
 
       </Switch>
