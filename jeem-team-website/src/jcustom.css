@@ -5,13 +5,23 @@ font-family: 'Roboto Mono', monospace;
 font-family: 'Roboto Slab', serif; 
 */
 
+
 .App {
-  text-align: center;
+  background-color: #455A3E;
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  font-size: calc(3rem);
+  color: #2F452E;
+  font-family: 'Roboto Slab', serif;
+}
+.whiteText{
+  font-size: calc(8rem);
+  color: #fff;
 }
 
 .logo-image{
@@ -22,48 +32,66 @@ font-family: 'Roboto Slab', serif;
   margin-top: -6px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.subtitle{
+  font-size: 2rem;
   color: white;
-  font-family: 'Roboto Slab', serif;
 }
 
-.App-link {
-  color: #620440;
-}
-
-.App-body {
-    color: #2F452E;
-    background-color: #f8f2e8;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 18px;
-    line-height: 1.5;
+.body1 {
+  display: flex;
+  text-align: left;
+  color: #2F452E;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 Button {
-    background-color: #620440;
-    color: white;
-    font-family: 'Roboto Mono', monospace;
-    border: none;
-    padding: 0.6rem 1.8em;
-    text-align: center;
-    display: inline-block;
-    margin: 0.25rem;
-    cursor: pointer;
-    border-radius: 1.5rem;
+  background-color: #620440;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  border: none;
+  padding: 0.6rem 1.8em;
+  text-align: center;
+  display: inline-block;
+  margin: 0.25rem;
+  cursor: pointer;
+  border-radius: 1.5rem;
 }
 button:hover {
-    background-color: #C2D1BD;
+  background-color: #C2D1BD;
+}
+
+.CTA {
+  background-color: #620440;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  border: none;
+  padding: 0.6rem 1.8em;
+  text-align: center;
+  display: inline-block;
+  margin: 1.5rem;
+  cursor: pointer;
+  border-radius: 1.5rem;
+}
+
+.CTA:hover {
+  background-color: #C2D1BD;
+}
+
+.LandingPage{
+  display: flex;
+  height: 600px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.BackgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: fit-content;
 }
