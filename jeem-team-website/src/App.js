@@ -9,6 +9,7 @@ import Home from './components/Home';
 import UserForm from './components/UserForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
+import './components/jeem logo.svg'
 
 import {
   BrowserRouter as Router,
@@ -20,6 +21,11 @@ function App() {
   return (
     <Router>
       <Navbar bg="light" expand="lg">
+        <a class="navbar-brand" href="/">
+          <div class="logo-image">
+              <img src="./components/jeem logo.svg" class="img-fluid" />
+          </div>
+        </a>
         <Navbar.Brand as={NavLink} to={'/home'}>WiCS Database</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
