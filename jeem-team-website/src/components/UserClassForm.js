@@ -1,5 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../jcustom.css";
+import "./form.css";
 import React from 'react';
 import firebase from '../firebase/index';
 import dartcsclasses from '../csclasses';
@@ -234,96 +236,98 @@ class UserClassForm extends React.Component {
 
         return (
             <div>
-                <h2>Class Feedback Form</h2>
+                <div className="form">
+                    <h2 className="title">Class Feedback Form</h2>
 
-                {/* user info */}
-                <h4>Your Info</h4>
-                <Form>
-                    <Form.Group controlId="formBasicName">
-                        <Form.Label>First Name: </Form.Label>
-                        <Form.Control onChange={this.setFirstName} value={this.state.userFname} type="text" placeholder="Emma" />
+                    {/* user info */}
+                    <h4 className="header">Your Info</h4>
+                    <Form>
+                        <Form.Group controlId="formBasicName">
+                            <Form.Label className="body">First Name: </Form.Label>
+                            <Form.Control onChange={this.setFirstName} value={this.state.userFname} type="text" placeholder="Emma" />
 
-                        <Form.Label>Last Name: </Form.Label>
-                        <Form.Control onChange={this.setLastName} value={this.state.userLname} type="text" placeholder="Rafkin" />
+                            <Form.Label className="body">Last Name: </Form.Label>
+                            <Form.Control onChange={this.setLastName} value={this.state.userLname} type="text" placeholder="Rafkin" />
 
-                        <Form.Text className="text-muted">
-                            Only your first name and last name initial will be displayed on the site.
-                        </Form.Text>
-                    </Form.Group>
+                            <Form.Text className="text-muted">
+                                Only your first name and last name initial will be displayed on the site.
+                            </Form.Text>
+                        </Form.Group>
 
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Full Dartmouth Email address</Form.Label>
-                        <Form.Control value={this.state.userEmail} onChange={this.setEmail} type="email" placeholder="first.m.last.20@dartmouth.edu" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else without your consent.
-                        </Form.Text>
-                    </Form.Group>
-
-
-                    {/* class info */}
-                    <h4>Course Info</h4>
-
-                    {/* drop down select for class */}
-                    <Form.Group controlId="exampleForm.ControlSelect1">
-                        <Form.Label>Course Name</Form.Label>
-                        <Form.Control as="select" ref={this.state.myRef}>
-                            {/* dart cs classes */}
-                            {Object.keys(dartcsclasses).map((course) => {
-                                return (
-                                    <option>{course}</option>
-                                )
-                            }
-                            )}
-                        </Form.Control>
-                    </Form.Group>
-
-                    {/* prof */}
-                    <Form.Group controlId="formProf">
-                        <Form.Label>Professor's First Name: </Form.Label>
-                        <Form.Control onChange={this.setProfFName} type="text" placeholder="Tom" />
-
-                        <Form.Label>Professor's Last Name: </Form.Label>
-                        <Form.Control onChange={this.setProfLName} type="text" placeholder="Cormen" />
-                    </Form.Group>
-
-                    {/* course review */}
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Course Review</Form.Label>
-                        <Form.Control onChange={this.writeCourseReview} as="textarea" rows={3} />
-                    </Form.Group>
-
-                    {/* recommend? (+/-/0) */}
-                    {/* action item--make the following options either/or*/}
-                    {/* <Form.Label>Do you recommend this course?</Form.Label>
-                    {['radio'].map((type) => (
-                        <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check onClick={this.updateRating} inline name="rating" value="yes" label="Yes" type={type} id={`inline-${type}-yes`} />
-                            <Form.Check onClick={this.updateRating} inline name="rating" value="no" label="No" type={type} id={`inline-${type}-no`} />
-                            <Form.Check inline label="Neutral" type={type} id={`inline-${type}-neutral`} />
-                        </div>
-                    ))} */}
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label className="body">Full Dartmouth Email address</Form.Label>
+                            <Form.Control value={this.state.userEmail} onChange={this.setEmail} type="email" placeholder="first.m.last.20@dartmouth.edu" />
+                            <Form.Text className="text-muted">
+                                We'll never share your email with anyone else without your consent.
+                            </Form.Text>
+                        </Form.Group>
 
 
-                    {/* consent to contact (Y/N) */}
-                    {/* <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (if yes, we will display your email address)</Form.Label>
-                    {['radio'].map((type) => (
-                        <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check inline label="Yes" type={type} id={`inline-${type}-yes`} />
-                            <Form.Check inline label="No" type={type} id={`inline-${type}-no`} />
-                        </div>
-                    ))} */}
+                        {/* class info */}
+                        <h4>Course Info</h4>
 
-                    {/* button for deleting this review*/}
-                    {/* <Button variant="danger">delete this class review</Button> */}
+                        {/* drop down select for class */}
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Label className="body">Course Name</Form.Label>
+                            <Form.Control as="select" ref={this.state.myRef}>
+                                {/* dart cs classes */}
+                                {Object.keys(dartcsclasses).map((course) => {
+                                    return (
+                                        <option>{course}</option>
+                                    )
+                                }
+                                )}
+                            </Form.Control>
+                        </Form.Group>
 
-                    {/* button for adding another class review*/}
-                    {/* <Button variant="success">add another class review</Button> */}
+                        {/* prof */}
+                        <Form.Group controlId="formProf">
+                            <Form.Label className="body">Professor's First Name: </Form.Label>
+                            <Form.Control onChange={this.setProfFName} type="text" placeholder="Tom" />
+
+                            <Form.Label className="body">Professor's Last Name: </Form.Label>
+                            <Form.Control onChange={this.setProfLName} type="text" placeholder="Cormen" />
+                        </Form.Group>
+
+                        {/* course review */}
+                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                            <Form.Label className="body">Course Review</Form.Label>
+                            <Form.Control onChange={this.writeCourseReview} as="textarea" rows={3} />
+                        </Form.Group>
+
+                        {/* recommend? (+/-/0) */}
+                        {/* action item--make the following options either/or*/}
+                        {/* <Form.Label>Do you recommend this course?</Form.Label>
+                        {['radio'].map((type) => (
+                            <div key={`inline-${type}`} className="mb-3">
+                                <Form.Check onClick={this.updateRating} inline name="rating" value="yes" label="Yes" type={type} id={`inline-${type}-yes`} />
+                                <Form.Check onClick={this.updateRating} inline name="rating" value="no" label="No" type={type} id={`inline-${type}-no`} />
+                                <Form.Check inline label="Neutral" type={type} id={`inline-${type}-neutral`} />
+                            </div>
+                        ))} */}
 
 
-                    <Button onClick={this.submitFunc} variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
+                        {/* consent to contact (Y/N) */}
+                        {/* <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (if yes, we will display your email address)</Form.Label>
+                        {['radio'].map((type) => (
+                            <div key={`inline-${type}`} className="mb-3">
+                                <Form.Check inline label="Yes" type={type} id={`inline-${type}-yes`} />
+                                <Form.Check inline label="No" type={type} id={`inline-${type}-no`} />
+                            </div>
+                        ))} */}
+
+                        {/* button for deleting this review*/}
+                        {/* <Button variant="danger">delete this class review</Button> */}
+
+                        {/* button for adding another class review*/}
+                        {/* <Button variant="success">add another class review</Button> */}
+
+
+                        <Button onClick={this.submitFunc} variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
             </div>
         );
     }
