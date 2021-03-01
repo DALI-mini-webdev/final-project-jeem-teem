@@ -95,3 +95,10 @@ button:hover {
   z-index: -1;
   max-width: fit-content;
 }
+
+.img-responsive {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 90px;
+}
