@@ -2,6 +2,8 @@ import { Jumbotron} from 'react-bootstrap';
 import '../jcustom.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import background from "../images/Rectangle 1.jpg";
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -12,41 +14,56 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+                <img className="BackgroundImage" src={background} alt=""/>
+
+                <div className="LandingPage">
+                    <title className="whiteText">Welcome</title>
+                    <title className="subtitle">We have compiled this for future women in computer science.</title>
+                    <a href="http://localhost:3000/all-classes">
+                        <button class="btn btn-default btn-lg CTA">let's go!</button>
+                        </a>
+                    <br></br>
+                   
+                </div>
+
+            <div>
                 <Jumbotron>
-                    <h1>Welcome to Jeem Teem's Course Database for Dartmouth Women in STEM!</h1>
-                    <h5>this was built as our project for our dali-wisp final project</h5>
+                    {/* <h1>Welcome to Jeem Teem's Course Database for Dartmouth Women in STEM!</h1>
+                    <h5>This was built as our project for our dali-wisp final project.</h5>
                     <button>learn more</button>
                     <p>
                         this is a React Bootstrap Jumbotron
-                    </p>
+                    </p> */}
+                    <br></br>
+
+                    <ul class="flex-container">
+                    <li class="flex-item">
+                        <p><span class="bold">Liz Frey</span></p>
+                    </li>
+                    <li class="flex-item">
+                        <p><span class="bold">Ella Gates</span></p>
+                        <p></p>
+                    </li>
+                    <li class="flex-item">
+                        <p><span class="bold">Judy Guo</span></p>
+                        <p>I'm a '24!</p>
+                        {/* <p>A ’24 at Dartmouth College, undecided but exploring economics, anthropology, and human-centered design.
+                        </p> */}
+                        <a href="http://github.com/judy-guo">
+                        <button>GitHub</button>
+                        </a>
+                        <a href="http://instagram.com/j.j.guo">
+                        <button>IG</button>
+                        </a>
+                    </li>
+                    <li class="flex-item">
+                        <p><span class="bold">Megan Liu</span></p>
+                    </li>
+                </ul>
                 </Jumbotron>
+                
 
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
-
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
-
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
-
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
-
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
-
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
+            </div>
             </div>
         );
     }

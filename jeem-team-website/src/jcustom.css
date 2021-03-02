@@ -10,7 +10,7 @@ font-family: 'Roboto Slab', serif;
   background-color: #455A3E;
   padding: 10px;
 }
-  
+
 .navdisplay {
   display: flex;
   flex-direction: row;
@@ -70,6 +70,7 @@ Button {
   margin: 0.25rem;
   cursor: pointer;
   border-radius: 1.5rem;
+  font-size: 0.75em;
 }
 button:hover {
   background-color: #C2D1BD;
@@ -90,6 +91,27 @@ button:hover {
 
 .CTA:hover {
   background-color: #C2D1BD;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-item {
+  color: #2F452E;
+  text-align: left;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.bold {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .LandingPage{
