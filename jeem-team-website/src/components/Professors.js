@@ -1,0 +1,17 @@
+import React from 'react';
+
+class Professors extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>profs</h1>
+            </div>
+        )
+    }
+}
+export default Professors;
