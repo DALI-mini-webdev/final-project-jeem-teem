@@ -46,6 +46,7 @@ class Home extends React.Component {
                     </li>
                     <li class="flex-item">
                         <p><span class="bold">Judy Guo</span></p>
+                        <p>I'm a '24!</p>
                         {/* <p>A ’24 at Dartmouth College, undecided but exploring economics, anthropology, and human-centered design.
                         </p> */}
                         <a href="http://github.com/judy-guo">
