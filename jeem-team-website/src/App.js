@@ -11,7 +11,7 @@ import UserClassForm from './components/UserClassForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
 import Professors from './components/Professors';
-
+import Contact from './components/Contact'
 
 
 import {
@@ -82,7 +82,7 @@ function App() {
         </Route>
 
         <Route exact path="/connect">
-          <UserClassForm />
+          <Contact />
         </Route>
 
       </Switch>
