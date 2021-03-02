@@ -15,13 +15,13 @@ class Contact extends Component{
           recipientName: '',
           recipientEmail: '',
           
-          templateParams = {
-            from_name: '',
-            reply_to: '',
-            to_name: '',
-            to_email: '',
-            message: ''
-          }
+        //   templateParams = {
+        //     from_name: '',
+        //     reply_to: '',
+        //     to_name: '',
+        //     to_email: '',
+        //     message: ''
+        //   }
         }
     }
 
