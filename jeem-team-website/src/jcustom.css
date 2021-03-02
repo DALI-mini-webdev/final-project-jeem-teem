@@ -32,6 +32,16 @@ color: grey;
   color: #2F452E;
   font-family: 'Roboto Slab', serif;
 }
+
+.exp {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  font-size: calc(1.75rem);
+  color: #455A3E;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .whiteText{
   font-size: calc(8rem);
   color: #fff;
