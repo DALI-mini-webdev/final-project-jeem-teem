@@ -14,14 +14,6 @@ class Contact extends Component{
           message: '',
           recipientName: '',
           recipientEmail: '',
-
-          /* templateParams: {
-            from_name: '',
-            reply_to: '',
-            to_name: '',
-            to_email: '',
-            message: ''
-          } */
         }
     }
 ß

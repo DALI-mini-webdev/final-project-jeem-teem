@@ -13,8 +13,6 @@ import BestRated from './components/BestRated';
 import Professors from './components/Professors';
 import Contact from './components/Contact';
 
-
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,11 +28,13 @@ function App() {
             <img src={Logo} className="img-responsive" alt="WiCS Database" />
         </a>          
         </Navbar.Brand>
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <a class="navdisplay">
             <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
+            </a>
+            <a class="navdisplay">
             <NavDropdown title="Browse" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -42,15 +42,18 @@ function App() {
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item>
             </NavDropdown>
+            </a>
+            <a class="navdisplay">
             <Nav.Link as={NavLink} to={'/connect'}>Connect</Nav.Link> 
+            </a>
           </Nav>
-
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Navbar>
+
       <Switch>
 
         <Route exact path="/form">

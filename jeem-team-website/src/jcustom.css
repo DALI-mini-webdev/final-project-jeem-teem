@@ -10,6 +10,19 @@ font-family: 'Roboto Slab', serif;
   background-color: #455A3E;
   padding: 10px;
 }
+  
+.navdisplay {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1em;
+  padding-right: 1.5em;
+  color: #455A3E;
+}
+
+.nav.navbar-nav a:hover {
+color: grey;
+}
 
 .title {
   display: flex;
