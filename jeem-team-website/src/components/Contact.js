@@ -12,9 +12,9 @@ class Contact extends Component{
           senderName: '',
           senderEmail: '',
           message: '',
-          clicked: false,
           recipientName: '',
           recipientEmail: '',
+          
           templateParams = {
             from_name: '',
             reply_to: '',
