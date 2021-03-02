@@ -47,10 +47,10 @@ function App() {
             <Nav.Link as={NavLink} to={'/connect'}>Connect</Nav.Link> 
             </a>
           </Nav>
-          <Form inline>
+          {/* <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Navbar>
 
@@ -61,7 +61,7 @@ function App() {
         </Route>
 
         <Route exact path="/">
-          <Landing />
+          <Home />
         </Route>
 
         <Route exact path="/home">
