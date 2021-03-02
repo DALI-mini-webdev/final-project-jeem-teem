@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../jcustom.css";
 import "./form.css";
-import { user_OiXuYPseFDKSxBoeYmpZp } from 'emailjs-com';
+import emailjs from 'emailjs-com';
 
 class Contact extends Component{
     constructor(props) {
@@ -14,22 +14,15 @@ class Contact extends Component{
           message: '',
           recipientName: '',
           recipientEmail: '',
-          
-        //   templateParams = {
-        //     from_name: '',
-        //     reply_to: '',
-        //     to_name: '',
-        //     to_email: '',
-        //     message: ''
-        //   }
         }
     }
-
+ß
     // user info funcs
     setSenderName = (event) => {
         this.setState({
             senderName: event.target.value,
         })
+        console.log(this.state.senderName);
     }
 
     setSenderEmail = (event) => {
@@ -56,41 +49,68 @@ class Contact extends Component{
         })
 
     }
-    
 
-    handleClick = () => {
-        return(
-            <div>
-                {this.saveNewMessage}
-                <p>Thanks! I'll get back to you soon.</p>
-            </div>
-        )
-    }
-    
-    fillTemplateParams = () => {
+    /* fillTemplateParams = () => {
         this.setState({
             templateParams: {
-                from_name: this.senderName,
-                reply_to: this.senderEmail,
-                to_name: this.recipientName,
-                to_email: this.recipientEmail,
-                message: this.message
+                from_name: this.state.senderName,
+                reply_to: this.state.senderEmail,
+                to_name: this.state.recipientName,
+                to_email: this.state.recipientEmail,
+                message: this.state.message
             }
         })
-    }
-
-    sendEmail = () => {
-        emailjs.send(default_service, template_3vq0a3i, this.templateParams, user_OiXuYPseFDKSxBoeYmpZp)
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
+        console.log(this.state.message);
     }
 
     submitFunc = () => {
-        this.fillTemplateParams;
-        this.sendEmail;
+        console.log("test1")
+        this.fillTemplateParams
+            .then(() => {
+                console.log(this.state.message);
+                console.log("test2");
+                emailjs.send("default_service", "template_3vq0a3i", this.templateParams, "user_OiXuYPseFDKSxBoeYmpZp")
+                    .then((result) => {
+                        console.log(result.text);
+                    }, (error) => {
+                        console.log(error.text);
+                    });
+                }, (error) => {
+                    console.log(error.text);
+                });
+    } */
+
+    sendEmail = (e) => {
+        const { senderName,
+        senderEmail,
+        message,
+        recipientName,
+        recipientEmail} = this.state
+
+        let templateParams = {
+            from_name: senderName,
+            reply_to: senderEmail,
+            to_name: recipientName,
+            to_email: recipientEmail,
+            message: message
+        };
+        emailjs.send('jeem_contact', 'template_3vq0a3i', templateParams, 'user_OiXuYPseFDKSxBoeYmpZp')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+          this.resetForm()
+      }
+
+    resetForm = () => {
+        this.setState({
+            senderName:'',
+            senderEmail:'',
+            message:'',
+            recipientName:'',
+            recipientEmail:''
+        })
     }
 
     render() {
@@ -120,10 +140,10 @@ class Contact extends Component{
 
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className="body">Message</Form.Label>
-                        <Form.Control onChange={this.setMessage} as="textarea" rows={3} />
+                        <Form.Control onChange={this.setMessage} value={this.state.message} as="textarea" rows={3} placeholder="Write your message here. . ." />
                     </Form.Group>
 
-                    <Button onClick={this.submitFunc} variant="primary" type="submit">
+                    <Button onClick={(e) => {e.preventDefault(); this.sendEmail()}} variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
