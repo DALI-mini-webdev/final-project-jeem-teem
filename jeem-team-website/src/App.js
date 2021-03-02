@@ -11,6 +11,7 @@ import UserClassForm from './components/UserClassForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
 import Professors from './components/Professors';
+import Contact from './components/Contact';
 
 
 
@@ -25,8 +26,8 @@ function App() {
     <Router>
       <Navbar bg="white" expand="lg">
         <Navbar.Brand as={NavLink} to={'/home'}>
-        <a class="navbar-brand" href="#">
-            <img src={Logo} class="img-responsive" alt="WiCS Database" />
+        <a className="navbar-brand" href="#">
+            <img src={Logo} className="img-responsive" alt="WiCS Database" />
         </a>          
         </Navbar.Brand>
 
@@ -82,7 +83,7 @@ function App() {
         </Route>
 
         <Route exact path="/connect">
-          <UserClassForm />
+          <Contact />
         </Route>
 
       </Switch>
