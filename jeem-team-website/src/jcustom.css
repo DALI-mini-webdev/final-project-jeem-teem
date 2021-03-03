@@ -84,6 +84,7 @@ Button {
 }
 button:hover {
   background-color: #C2D1BD;
+  color: #2F452E
 }
 
 .CTA {
@@ -105,7 +106,7 @@ button:hover {
 
 .flex-container {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
   justify-content: space-around;
   padding: 0;
   margin: 0;
@@ -117,6 +118,9 @@ button:hover {
   text-align: left;
   font-family: 'Roboto Mono', monospace;
   font-size: 0.9rem;
+  flex: 4;
+  padding: 10px;
+  padding-left: 30px
 }
 
 .bold {
