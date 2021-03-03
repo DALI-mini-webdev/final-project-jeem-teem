@@ -264,7 +264,7 @@ class UserClassForm extends React.Component {
 
 
                         {/* class info */}
-                        <h4>Course Info</h4>
+                        <h4 className="header">Course Info</h4>
 
                         {/* drop down select for class */}
                         <Form.Group controlId="exampleForm.ControlSelect1">

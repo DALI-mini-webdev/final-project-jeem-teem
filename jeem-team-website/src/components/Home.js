@@ -15,7 +15,6 @@ class Home extends React.Component {
         return (
             <div>
                 <img className="BackgroundImage" src={background} alt=""/>
-
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
                     <title className="subtitle">We have compiled this for future women in computer science.</title>
