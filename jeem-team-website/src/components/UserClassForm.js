@@ -324,7 +324,7 @@ class UserClassForm extends React.Component {
                         {/* <Button variant="success">add another class review</Button> */}
 
 
-                        <Button onClick={this.submitFunc} variant="primary" >
+                        <Button onClick={this.submitFunc} className="CTA" variant="primary" >
                             Submit
                         </Button>
                     </Form>
