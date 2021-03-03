@@ -1,6 +1,6 @@
 import { Jumbotron} from 'react-bootstrap';
-import '../jcustom.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../jcustom.css'
 import React from 'react';
 import background from "../images/Rectangle 1.jpg";
 
@@ -28,39 +28,52 @@ class Home extends React.Component {
 
             <div>
                 <Jumbotron>
-                    {/* <h1>Welcome to Jeem Teem's Course Database for Dartmouth Women in STEM!</h1>
-                    <h5>This was built as our project for our dali-wisp final project.</h5>
-                    <button>learn more</button>
-                    <p>
-                        this is a React Bootstrap Jumbotron
-                    </p> */}
+                    <div>
+                    <title>We are JEEM.</title>
+                    </div>
+                    
+                    <div>
+                    <exp>This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</exp>
+                    </div>
+                    <a href="https://students.dartmouth.edu/wisp/">
+                    <button>Check out WiSP!</button>
+                    </a>
+                    
+                    <div>
+                    <exp>We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</exp>
+                    </div>
+                    <a href="https://www.instagram.com/dartmouthwics/s">
+                    <button>Check out WiCS happenings!</button>
+                    </a>
+                   
                     <br></br>
 
-                    <ul class="flex-container">
-                    <li class="flex-item">
-                        <p><span class="bold">Liz Frey</span></p>
-                    </li>
-                    <li class="flex-item">
-                        <p><span class="bold">Ella Gates</span></p>
-                        <p></p>
-                    </li>
-                    <li class="flex-item">
-                        <p><span class="bold">Judy Guo</span></p>
-                        <p>I'm a '24!</p>
-                        {/* <p>A ’24 at Dartmouth College, undecided but exploring economics, anthropology, and human-centered design.
-                        </p> */}
-                        <a href="http://github.com/judy-guo">
-                        <button>GitHub</button>
-                        </a>
-                        <a href="http://instagram.com/j.j.guo">
-                        <button>IG</button>
-                        </a>
-                    </li>
-                    <li class="flex-item">
-                        <p><span class="bold">Megan Liu</span></p>
-                    </li>
-                </ul>
                 </Jumbotron>
+
+            <ul class="flex-container">
+                <li class="flex-item">
+                    <p><span class="bold">Liz Frey</span></p>
+                </li>
+                <li class="flex-item">
+                    <p><span class="bold">Ella Gates</span></p>
+                    <p></p>
+                </li>
+                <li class="flex-item">
+                    <p><span class="bold">Judy Guo</span></p>
+                    <p>I'm a '24!</p>
+                    {/* <p>A ’24 at Dartmouth College, undecided but exploring economics, anthropology, and human-centered design.
+                    </p> */}
+                    <a href="http://github.com/judy-guo">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/j.j.guo">
+                    <button>IG</button>
+                    </a>
+                </li>
+                <li class="flex-item">
+                    <p><span class="bold">Megan Liu</span></p>
+                </li>
+            </ul>
                 
 
             </div>
