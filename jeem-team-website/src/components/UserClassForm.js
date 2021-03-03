@@ -13,26 +13,23 @@ class UserClassForm extends React.Component {
             // specfic user info
             userFname: '',
             userLname: '',
-            userName: '',
             userEmail: '',
-            // userId: 0,
             contacted: false,
 
-            // user info assoc with this course
+            // user-specific info assoc with this course
             userList: [],
             userEmailList: [],
             userContactList: [],
+            courseProfFname: '',
+            courseProfLname: '',
+            courseReview: '', // action item--use body
+            myRef: React.createRef(), // for form select input
 
             // course info
             courseName: '',
-            courseNum: 0, // used as document class name in firebase
-            courseProfFname: '',
-            courseProfLname: '',
-            courseProfName: '',
-            courseReview: '', // action item--use body
-            courseRating: 0,
-            myRef: React.createRef(), // for form select 
+            courseNum: 0, // used as document identifier in firebase
             id: 0,
+            // courseRating: 0,
         };
     }
 
@@ -59,16 +56,13 @@ class UserClassForm extends React.Component {
     // prof info funcs
     setProfFName = (event) => {
         this.setState({
-            courseProfFName: event.target.value,
-            courseProfName: event.target.value,
-
+            courseProfFname: event.target.value,
         })
     }
 
     setProfLName = (event) => {
         this.setState({
             courseProfLname: event.target.value,
-            courseProfName: this.state.courseProfName + " " + event.target.value, // tom c co cor corm corme cormen
         })
     }
 
@@ -80,12 +74,24 @@ class UserClassForm extends React.Component {
 
     }
 
-    // updateRating = (event) => {  // IN PROGRESS
+    contactConsentFunc = (event) => {
+        if (event.target.value === "yes") {
+            this.setState({
+                contacted: true,
+            })
+        }
+        else if (event.target.value === "no") {
+            this.setState({
+                contacted: false,
+            })
+        }
+    }
+
+    // updateRating = (event) => {  // ON BACKBURNER
     //     firebase.db.collection('class-db').where(this.state.courseNum, '==', "courseNum").get()
     //         .then((querySnapshot) => {
     // console.log(querySnapshot)
     // const courseRating = querySnapshot.docs[0].ref
-    // DOES "WHERE" HAVE TO COMPARE IDs? CAN DO COURSENUM INSTEAD? 
     // this.courseRating = firebase.db.courseNum.rating
 
 
@@ -96,57 +102,57 @@ class UserClassForm extends React.Component {
     //     this.state.courseRating -= 1
     // }
 
-    // .then(() => {  // PUT?? update courseRating field in the document 
+    // .then(() => {  // PUT? update courseRating field in the document 
     //    firebase.db.courseNum.courseRating: this.courseRating
     // }) 
     //         })
     // }
 
     submitFunc = () => {
-        // set courseProfName and userName-- BUT async so doesn't work
-        this.setState({ 
-            //courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname, 
-            //userName: this.state.userFname + " " + this.state.userLname 
-        })
-        console.log(this.state.courseProfName)
-        console.log(this.state.userName)
-
-
         // PUT user list -- look @ link emma sent
         // currently GET + POSTing to db, want PUT    
-
-
         const tempUserList = [];
+        const tempEmailList = [];
+        const tempContactConsentList = [];
+        const tempProfList = []; 
+        const tempReviewList = []; 
+
         // var docId = '';
         // docId = Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).id
         // console.log(docId)
 
         Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).get()
             .then((prevClassDoc) => {
-                // prevClass.forEach(doc => { 
-                //     // console.log(doc.data());
-                //     tempUserList.push(doc.userList.data())
-                // })
+                // update 
                 this.setState({
-                    tempUserList: prevClassDoc.userList
+                    tempUserList: prevClassDoc.userList,
+                    tempEmailList: prevClassDoc.emailList,
+                    tempContactConsentList: prevClassDoc.userContactList,
                 })
+                tempUserList.push(`${this.state.userFname} ${this.state.userLname}`)
+                tempEmailList.push(`${this.state.userEmail}`)
+                tempContactConsentList.push(this.state.contacted)
+                tempProfList.push(`${this.state.courseProfFname} ${this.state.courseProfLname}`)
+                tempReviewList.push(`${this.state.courseReview}`)
 
-                console.log(prevClassDoc) // BUG--- no data even tho doc alr exists? [high priority]
-                console.log(tempUserList)
-                console.log(prevClassDoc.exists, "exist") // BUG --- undefined 
+                // testing
+                // console.log(prevClassDoc) // BUG --- no data even tho doc alr exists? [high priority]
+                // console.log(tempUserList)
+                // console.log(prevClassDoc.exists, "exist") // BUG --- undefined, method doesn't work?  
 
-                // add info to db
-                if (prevClassDoc.exists) { // if doc alr exists, just need to update
+                // add or update info to db, dependent upon if class alr existing in db 
+                if (prevClassDoc.exists) { // BUG --- DOESN'T WORK (use else in this if-else statement); if doc alr exists, just need to update
                     Firebase.firestore().collection('class-db').update({
                         courseProfName: this.state.courseProfName,
                         courseReview: this.state.courseReview,
-                        userList: tempUserList.push(this.state.userList),
+                        userList: tempUserList,
                         // courseRating: this.state.courseRating, 
-                        // emailList: this.state.userEmailList,
-                        // userContactList: this.state.userContactList, 
+                        emailList: tempEmailList,
+                        userContactList: tempContactConsentList,
                     })
+
                         .then(() => {
-                            console.log("logged else")
+                            console.log("UNEXPECTED doc exists")
                             this.setState({
                                 // specfic user info
                                 userFname: '',
@@ -183,26 +189,27 @@ class UserClassForm extends React.Component {
                         // id: this.state.id,
                         courseName: this.state.myRef.current.value,
                         courseNum: dartcsclasses[this.state.myRef.current.value],
-                        courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname,
-                        courseReview: this.state.courseReview,
+                        // courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname,
+                        // courseReview: this.state.courseReview,
+                        courseProfList: tempProfList,
+                        courseReviewList: tempReviewList,
                         userList: tempUserList,
                         // courseRating: this.state.courseRating, 
-                        // emailList: this.state.userEmailList,
-                        // userContactList: this.state.userContactList, 
+                        emailList: tempEmailList,
+                        userContactList: tempContactConsentList,
                     })
                         .then(() => {
-                            console.log("logged")
+                            console.log("EXPECTED doc DNE")
+
                             this.setState({
                                 // specfic user info
                                 userFname: '',
                                 userLname: '',
-                                userName: this.state.userFname + " " + this.state.userLname,
                                 userEmail: '',
-                                // userId: 0,
                                 contacted: false,
 
                                 // user info assoc with this course
-                                userList: [].push(this.state.userName),
+                                userList: [],  // .push(this.state.userName),
                                 userEmailList: [],
                                 userContactList: [],
 
@@ -213,7 +220,7 @@ class UserClassForm extends React.Component {
                                 courseProfLname: '',
                                 courseProfName: '',
                                 courseReview: '', // action item--use body
-                                courseRating: 0,
+                                // courseRating: 0,
                                 id: 0,
                             })
                         }).catch((e) => {
@@ -221,13 +228,10 @@ class UserClassForm extends React.Component {
                             console.log(e);
                         })
                 }
-
-
             }).catch((e) => {
                 console.log("error")
                 console.log(e);
             })
-
     }
 
 
@@ -307,13 +311,13 @@ class UserClassForm extends React.Component {
 
 
                         {/* consent to contact (Y/N) */}
-                        {/* <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (if yes, we will display your email address)</Form.Label>
+                        <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (If yes, we will display your email address.)</Form.Label>
                         {['radio'].map((type) => (
                             <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check inline label="Yes" type={type} id={`inline-${type}-yes`} />
-                                <Form.Check inline label="No" type={type} id={`inline-${type}-no`} />
+                                <Form.Check onClick={this.contactConsentFunc} name="rating" label="Yes" value="yes" type={type} inline id={`inline-${type}-yes`} />
+                                <Form.Check onClick={this.contactConsentFunc} name="rating" label="No" value="no" type={type} inline id={`inline-${type}-no`} />
                             </div>
-                        ))} */}
+                        ))}
 
                         {/* button for deleting this review*/}
                         {/* <Button variant="danger">delete this class review</Button> */}
