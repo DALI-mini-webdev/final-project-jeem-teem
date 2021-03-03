@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './jcustom.css';
 import { NavLink } from 'react-router-dom';
 import Logo from'./components/jeem-logo.png'
-import Classes from './components/Classes';
+// import Classes from './components/Classes';
 import Landing from './components/Landing';
 import Home from './components/Home';
 import UserClassForm from './components/UserClassForm';
@@ -32,7 +32,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <a class="navdisplay">
-            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
+            <Nav.Link as={NavLink} to={'/contribute'}>Contribute</Nav.Link>
             </a>
             <a class="navdisplay">
             <NavDropdown title="Browse" id="basic-nav-dropdown">
@@ -56,7 +56,7 @@ function App() {
 
       <Switch>
 
-        <Route exact path="/form">
+        <Route exact path="/contribute">
           <UserClassForm />
         </Route>
 
