@@ -35,12 +35,12 @@ class Home extends React.Component {
                     <div>
                     <exp>We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</exp>
                     </div>
-                    <a href="https://www.instagram.com/dartmouthwics/s">
+                    <a href="https://www.instagram.com/dartmouthwics">
                     <button>Check out WiCS happenings!</button>
                     </a>
                     <div></div>
                     <div>
-                    <exp>This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</exp>
+                    <exp><br></br>This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</exp>
                     </div>
                     <a href="https://students.dartmouth.edu/wisp/">
                     <button>Check out WiSP!</button>
