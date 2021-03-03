@@ -11,8 +11,7 @@ import UserClassForm from './components/UserClassForm';
 import AllClasses from './components/AllClasses';
 import BestRated from './components/BestRated';
 import Professors from './components/Professors';
-
-
+import Contact from './components/Contact';
 
 import {
   BrowserRouter as Router,
@@ -25,13 +24,17 @@ function App() {
     <Router>
       <Navbar bg="white" expand="lg">
         <Navbar.Brand as={NavLink} to={'/home'}>
+        <a className="navbar-brand" href="#">
             <img src={Logo} className="img-responsive" alt="WiCS Database" />
+        </a>          
         </Navbar.Brand>
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to={'/contribute'}>Contribute</Nav.Link>
+            <a class="navdisplay">
+            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
+            </a>
+            <a class="navdisplay">
             <NavDropdown title="Browse" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -39,15 +42,18 @@ function App() {
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item>
             </NavDropdown>
+            </a>
+            <a class="navdisplay">
             <Nav.Link as={NavLink} to={'/connect'}>Connect</Nav.Link> 
+            </a>
           </Nav>
-
-          <Form inline>
+          {/* <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Navbar>
+
       <Switch>
 
         <Route exact path="/contribute">
@@ -55,7 +61,7 @@ function App() {
         </Route>
 
         <Route exact path="/">
-          <Landing />
+          <Home />
         </Route>
 
         <Route exact path="/home">
@@ -80,7 +86,7 @@ function App() {
         </Route>
 
         <Route exact path="/connect">
-          <UserClassForm />
+          <Contact />
         </Route>
 
       </Switch>

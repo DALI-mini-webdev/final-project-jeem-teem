@@ -11,6 +11,19 @@ font-family: 'Roboto Slab', serif;
   padding: 10px;
 }
 
+.navdisplay {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.1em;
+  padding-right: 1.5em;
+  color: #455A3E;
+}
+
+.nav.navbar-nav a:hover {
+color: grey;
+}
+
 .title {
   display: flex;
   justify-content: flex-start;
@@ -19,6 +32,16 @@ font-family: 'Roboto Slab', serif;
   color: #2F452E;
   font-family: 'Roboto Slab', serif;
 }
+
+.exp {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  font-size: calc(1.75rem);
+  color: #455A3E;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .whiteText{
   font-size: calc(8rem);
   color: #fff;
@@ -57,9 +80,11 @@ Button {
   margin: 0.25rem;
   cursor: pointer;
   border-radius: 1.5rem;
+  font-size: 0.75em;
 }
 button:hover {
   background-color: #C2D1BD;
+  color: #2F452E
 }
 
 .CTA {
@@ -77,6 +102,30 @@ button:hover {
 
 .CTA:hover {
   background-color: #C2D1BD;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-item {
+  color: #2F452E;
+  text-align: left;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  flex: 4;
+  padding: 10px;
+  padding-left: 30px
+}
+
+.bold {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .LandingPage{
