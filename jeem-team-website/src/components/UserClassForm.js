@@ -114,8 +114,8 @@ class UserClassForm extends React.Component {
         const tempUserList = [];
         const tempEmailList = [];
         const tempContactConsentList = [];
-        const tempProfList = []; 
-        const tempReviewList = []; 
+        const tempProfList = [];
+        const tempReviewList = [];
 
         // var docId = '';
         // docId = Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).id
@@ -142,6 +142,7 @@ class UserClassForm extends React.Component {
 
                 // add or update info to db, dependent upon if class alr existing in db 
                 if (prevClassDoc.exists) { // BUG --- DOESN'T WORK (use else in this if-else statement); if doc alr exists, just need to update
+                    console.log("UNEXPECTED doc exists")
                     Firebase.firestore().collection('class-db').update({
                         courseProfName: this.state.courseProfName,
                         courseReview: this.state.courseReview,
@@ -152,30 +153,27 @@ class UserClassForm extends React.Component {
                     })
 
                         .then(() => {
-                            console.log("UNEXPECTED doc exists")
                             this.setState({
                                 // specfic user info
                                 userFname: '',
                                 userLname: '',
-                                userName: this.state.userFname + " " + this.state.userLname,
                                 userEmail: '',
-                                // userId: 0,
                                 contacted: false,
 
-                                // user info assoc with this course
-                                userList: [].push(this.state.userName),
+                                // user-specific info assoc with this course
+                                userList: [],
                                 userEmailList: [],
                                 userContactList: [],
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseReview: '', // action item--use body
+                                myRef: React.createRef(), // for form select input
 
                                 // course info
                                 courseName: '',
-                                courseNum: 0, // used as document class name in firebase
-                                courseProfFname: '',
-                                courseProfLname: '',
-                                courseProfName: '',
-                                courseReview: '', // action item--use body
-                                courseRating: 0,
+                                courseNum: 0, // used as document identifier in firebase
                                 id: 0,
+                                // courseRating: 0, 
                             })
                         }).catch((e) => {
                             console.log("error")
@@ -185,6 +183,7 @@ class UserClassForm extends React.Component {
 
                 }
                 else { // doesn't alr exist in firebase -- add new doc
+                    console.log("EXPECTED doc DNE")
                     Firebase.firestore().collection('class-db').add({
                         // id: this.state.id,
                         courseName: this.state.myRef.current.value,
@@ -199,7 +198,6 @@ class UserClassForm extends React.Component {
                         userContactList: tempContactConsentList,
                     })
                         .then(() => {
-                            console.log("EXPECTED doc DNE")
 
                             this.setState({
                                 // specfic user info
@@ -208,20 +206,20 @@ class UserClassForm extends React.Component {
                                 userEmail: '',
                                 contacted: false,
 
-                                // user info assoc with this course
-                                userList: [],  // .push(this.state.userName),
+                                // user-specific info assoc with this course
+                                userList: [],
                                 userEmailList: [],
                                 userContactList: [],
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseReview: '', // action item--use body
+                                myRef: React.createRef(), // for form select input
 
                                 // course info
                                 courseName: '',
-                                courseNum: 0, // used as document class name in firebase
-                                courseProfFname: '',
-                                courseProfLname: '',
-                                courseProfName: '',
-                                courseReview: '', // action item--use body
-                                // courseRating: 0,
+                                courseNum: 0, // used as document identifier in firebase
                                 id: 0,
+                                // courseRating: 0,
                             })
                         }).catch((e) => {
                             console.log("error")
