@@ -1,0 +1,51 @@
+.App {
+    background-color: #f8f2e8;
+    padding: 20px;
+  }
+title {
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
+    font-size: calc(3rem);
+    color: #2F452E;
+    font-family: 'Roboto Slab', serif;
+}
+body1 {
+    display: flex;
+    text-align: left;
+    color: #2F452E;
+    background-color: #f8f2e8;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    line-height: 90%;
+}
+.course-table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.2;
+}
+.course-table thead tr {
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-bottom: 1px solid #2F452E;
+
+}
+.course-table tbody th,
+.course-table tbody td {
+    vertical-align: top;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+    font-family: 'Roboto Mono', serif;
+}
+.course-table tr {
+    border-bottom: 0.5px dotted #2F452E;
+}
+p.course {
+    font-weight: bold;
+}
+p.des { 
+    font-size: 0.7em !important; 
+ }

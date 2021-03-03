@@ -3,12 +3,15 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './jcustom.css';
 import { NavLink } from 'react-router-dom';
-import Classes from './components/Classes';
-import Home from './components/Home';
+import Logo from'./components/jeem-logo.png'
+// import Classes from './components/Classes';
 import Landing from './components/Landing';
-import UserForm from './components/UserForm';
-
-
+import Home from './components/Home';
+import UserClassForm from './components/UserClassForm';
+import AllClasses from './components/AllClasses';
+import BestRated from './components/BestRated';
+import Professors from './components/Professors';
+import Contact from './components/Contact';
 
 import {
   BrowserRouter as Router,
@@ -19,40 +22,73 @@ import {
 function App() {
   return (
     <Router>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand as={NavLink} to={'/home'}>WiCS Database</Navbar.Brand>
+      <Navbar bg="white" expand="lg">
+        <Navbar.Brand as={NavLink} to={'/home'}>
+        <a className="navbar-brand" href="#">
+            <img src={Logo} className="img-responsive" alt="WiCS Database" />
+        </a>          
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <a class="navdisplay">
+            <Nav.Link as={NavLink} to={'/contribute'}>Contribute</Nav.Link>
+            </a>
+            <a class="navdisplay">
+            <NavDropdown title="Browse" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to={'/best-rated'}>Best Rated</NavDropdown.Item>
+              <NavDropdown.Divider />
+              {/* <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item> */}
             </NavDropdown>
+            </a>
+            <a class="navdisplay">
+            <Nav.Link as={NavLink} to={'/connect'}>Connect</Nav.Link> 
+            </a>
           </Nav>
-          <Form inline>
+          {/* <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Navbar>
+
       <Switch>
-        <Route path="/home">
+
+        <Route exact path="/contribute">
+          <UserClassForm />
+        </Route>
+
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/all-classes">
+
+        <Route exact path="/home">
+          <Home />
+        </Route>
+
+        <Route exact path="/all-classes">
+          <AllClasses />
+
+        </Route>
+    
+        {/* <Route path="/all-classes">
           <Classes sort={'All Classes'}/>
+        </Route> */}
+
+        <Route exact path="/best-rated">
+          <BestRated />
         </Route>
-        <Route path="/best-rated">
-          <Classes sort={'Best Rated'}/>
+
+        <Route exact path="/professors">
+          <Professors />
         </Route>
-        <Route path="/form">
-          <UserForm />
+
+        <Route exact path="/connect">
+          <Contact />
         </Route>
-        <Route exact path="">
-          <Landing />
-        </Route>
+
       </Switch>
     </Router>
   );

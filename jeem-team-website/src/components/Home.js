@@ -1,7 +1,11 @@
 import { Jumbotron} from 'react-bootstrap';
-import '../jcustom.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../jcustom.css'
 import React from 'react';
+import background from "../images/Rectangle 1.jpg";
+import {ChevronDownIcon} from '@primer/octicons-react'
+
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -11,42 +15,93 @@ class Home extends React.Component {
     
     render() {
         return (
+            <div className="Home">
+                <img className="BackgroundImage" src={background} alt=""/>
+                <div className="LandingPage">
+                    <title className="whiteText">Welcome</title>
+                    <title className="subtitle">We have compiled this resource for future women in computer science.</title>
+                    <a href="http://localhost:3000/all-classes">
+                        <button className="btn btn-default btn-lg CTA">let's go!</button>
+                        </a>
+                    <title className="scrollIcon"><ChevronDownIcon size={36} /></title>                   
+                </div>
+
             <div>
-                <Jumbotron>
-                    <h1>Welcome to Jeem Teem's Course Database for Dartmouth Women in STEM!</h1>
-                    <h5>this was built as our project for our dali-wisp final project</h5>
-                    <button>learn more</button>
-                    <p>
-                        this is a React Bootstrap Jumbotron
+            <div className="HomeHeader">
+
+                    <div>
+                    <title>We are JEEM.</title>
+                    </div>
+                    <p>  We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</p>
+                    <a href="https://www.instagram.com/dartmouthwics">
+                    <button>Check out WiCS happenings!</button>
+                    </a>
+                    <p><br></br></p>
+                 
+                    <p>  This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</p>
+                    <a href="https://students.dartmouth.edu/wisp/">
+                    <button>Check out WiSP!</button>
+                    </a>
+                    <p><br></br></p>
+
+                    </div>
+
+            <ul class="flex-container">
+                <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Judy Guo</span></p>
+                    <p>Judy Guo is a ’24 at Dartmouth College, very undecided but exploring economics, anthropology, and human-centered design.
                     </p>
-                </Jumbotron>
+                    <a href="http://github.com/judy-guo">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/j.j.guo">
+                    <button>IG</button>
+                    </a>
+                    </li>
 
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
+                <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Ella Gates</span></p>
+                    <p>Ella Gates is a '24 at Dartmouth College studying computer science and linguistics.</p>
+                    <a href="https://github.com/ellajanegates">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/ellajanegates">
+                    <button>IG</button>
+                    </a>
+                </li>    
 
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                
+                <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Liz Frey</span></p>
+                    <p>Liz Frey is a '24 at Dartmouth College studying computer science and neuroscience.</p>
+                    <a href="https://github.com/lizfrey">
+                    <button>GitHub</button>
+                    </a>
+                </li>
 
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
 
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
+                <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Megan Liu</span></p>
+                    <p>Megan Liu is a '24 at Dartmouth studying Computer Science and Neuroscience. She likes to play soccer, paddle, and snowboard. 
+                    </p>
+                    <a href="https://github.com/mliu31">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/megasaurus31">
+                    <button>IG</button>
+                    </a>
+                    <p><br></br></p>
+                    <p><br></br></p>
 
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+                </li>
+            </ul>
+                
 
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
-
-                <h3>general info</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae egestas enim, vitae tincidunt eros. Donec auctor posuere interdum. Fusce quis ante sit amet velit vulputate congue quis vestibulum augue. Duis a lobortis nisi. Fusce maximus ante eget nisi venenatis, id sollicitudin orci facilisis. Proin eu odio malesuada, tristique lacus sed, consectetur elit. Praesent laoreet sed orci vel eleifend. Aenean purus erat, feugiat congue semper in, aliquet ut neque. Mauris at porttitor arcu, vitae lacinia orci. Mauris sollicitudin risus sed maximus commodo. Donec tortor leo, euismod ut eros at, pulvinar aliquam sapien. Curabitur tempor nec est in efficitur.
-
-                    Nullam tempor semper risus non luctus. Nullam id mollis velit. Aenean at nulla quis ante mattis ullamcorper. Duis interdum ultrices congue. In quis lorem ligula. Sed consequat vitae dui in ornare. Nam egestas, velit quis pulvinar placerat, lorem eros tempus ipsum, id luctus neque ipsum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In eu lectus a ipsum semper posuere. Mauris auctor ipsum non neque imperdiet bibendum. Etiam pretium, justo quis rhoncus iaculis, nunc lectus iaculis nibh, a elementum turpis mi non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum mauris ut mauris molestie, ac malesuada diam finibus. Morbi interdum odio eget nisl ornare, id aliquam sapien vehicula. Suspendisse ut sagittis ex. Etiam ut fringilla purus. Nam gravida nibh sapien. Curabitur viverra feugiat nulla placerat laoreet.
-                </p>
+            </div>
             </div>
         );
     }
