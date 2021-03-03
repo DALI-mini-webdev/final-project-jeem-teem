@@ -40,7 +40,7 @@ function App() {
               <NavDropdown.Divider />
               <NavDropdown.Item as={NavLink} to={'/best-rated'}>Best Rated</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item>
+              {/* <NavDropdown.Item as={NavLink} to={'/professors'}>Professors</NavDropdown.Item> */}
             </NavDropdown>
             </a>
             <a class="navdisplay">
