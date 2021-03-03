@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../jcustom.css";
 import "./form.css";
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 
 class Contact extends Component{
     constructor(props) {
@@ -94,13 +94,13 @@ class Contact extends Component{
             to_email: recipientEmail,
             message: message
         };
-        emailjs.send('jeem_contact', 'template_3vq0a3i', templateParams, 'user_OiXuYPseFDKSxBoeYmpZp')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-          this.resetForm()
+        // emailjs.send('jeem_contact', 'template_3vq0a3i', templateParams, 'user_OiXuYPseFDKSxBoeYmpZp')
+        //   .then((result) => {
+        //       console.log(result.text);
+        //   }, (error) => {
+        //       console.log(error.text);
+        //   });
+        //   this.resetForm()
       }
 
     resetForm = () => {

@@ -32,7 +32,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <a class="navdisplay">
-            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
+            <Nav.Link as={NavLink} to={'/contribute'}>Contribute</Nav.Link>
             </a>
             <a class="navdisplay">
             <NavDropdown title="Browse" id="basic-nav-dropdown">
