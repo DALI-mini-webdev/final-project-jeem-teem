@@ -33,7 +33,7 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} to={'/form'}>Contribute</Nav.Link>
+            <Nav.Link as={NavLink} to={'/contribute'}>Contribute</Nav.Link>
             <NavDropdown title="Browse" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to={'/all-classes'}>All Classes</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -52,7 +52,7 @@ function App() {
       </Navbar>
       <Switch>
 
-        <Route exact path="/form">
+        <Route exact path="/contribute">
           <UserClassForm />
         </Route>
 
