@@ -221,14 +221,22 @@ class AllClasses extends React.Component {
                         <td></td>
                    </tr>
 
+<<<<<<< HEAD
                    {/* <tr>
+=======
+                   <tr>
+>>>>>>> e36e963c9a679f43732023c3fe907ff104c89531
                         <td>
                             <p class="course">COSC031: Algorithms</p>
                             <p class="des"></p>
                         </td>
                         <td>TLA</td>
                         <td></td>
+<<<<<<< HEAD
                    </tr> */}
+=======
+                   </tr>
+>>>>>>> e36e963c9a679f43732023c3fe907ff104c89531
                     </tbody>
                             </table>
 
