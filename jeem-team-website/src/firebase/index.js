@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
 
-firebase.initializeApp({
+const Firebase = firebase.initializeApp({
     apiKey: "AIzaSyBW_d9peSXlLj1UxlVNJOJ8aAcBtU4n4uI",
     authDomain: "dali-wisp.firebaseapp.com",
     projectId: "dali-wisp",
@@ -11,10 +11,4 @@ firebase.initializeApp({
     measurementId: "G-C7MPY8J649"
 });
 
-
-const db = firebase.firestore();
-
-
-export default {
-    db, firebase
-} 
+export default Firebase 

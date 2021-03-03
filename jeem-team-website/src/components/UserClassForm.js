@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../jcustom.css";
 import "./form.css";
 import React from 'react';
-import firebase from '../firebase/index';
+import Firebase from '../firebase/index';
 import dartcsclasses from '../csclasses';
 
 class UserClassForm extends React.Component {
@@ -108,8 +108,8 @@ class UserClassForm extends React.Component {
         // currently GET + POSTing to db, want PUT
         console.log("submit")
         
-        const tempUserList = []
-        firebase.db.collection('class-db').get()
+        const tempUserList = [];
+        Firebase.firestore().collection('class-db').get()
         .then((userListResponse) => { 
             console.log("first.then()")
             userListResponse.forEach(doc => { 
@@ -120,76 +120,54 @@ class UserClassForm extends React.Component {
             console.log(tempUserList, "temp user list");
 
             // add info to db
-            firebase.db.collection('class-db').add({  
+            Firebase.firestore().collection('class-db').add({  
                 // id: this.state.id,
                 courseName: this.state.myRef.current.value,
-                // courseNum: dartcsclasses[this.state.myRef.current.value],
-                // courseProfName: this.state.courseProfName,
-                // courseReview: this.state.courseReview,
-                // userList: tempUserList,
+                courseNum: dartcsclasses[this.state.myRef.current.value],
+                courseProfName: this.state.courseProfName,
+                courseReview: this.state.courseReview,
+                userList: tempUserList,
                 // courseRating: this.state.courseRating, 
                 // emailList: this.state.userEmailList,
                 // userContactList: this.state.userContactList, 
             })
-            // .then(() => { 
-            //     console.log("logged")
+            .then(() => { 
+                console.log("logged")
+                this.setState({ 
+                    // specfic user info
+                    userFname: '',
+                    userLname: '',
+                    userName: '', 
+                    userEmail: '',
+                    // userId: 0,
+                    contacted: false,
 
-            //     this.setState({ 
-            //         // specfic user info
-            //         userFname: '',
-            //         userLname: '',
-            //         userName: '', 
-            //         userEmail: '',
-            //         // userId: 0,
-            //         contacted: false,
+                    // user info assoc with this course
+                    userList: [],
+                    userEmailList: [],
+                    userContactList: [],
 
-            //         // user info assoc with this course
-            //         userList: [],
-            //         userEmailList: [],
-            //         userContactList: [],
-
-            //         // course info
-            //         courseName: '',
-            //         courseNum: 0, // used as document class name in firebase
-            //         courseProfFname: '',
-            //         courseProfLname: '',
-            //         courseProfName: '', 
-            //         courseReview: '', // action item--use body
-            //         courseRating: 0,
-            //         myRef: React.createRef(), // for form select 
-            //         id: 0,
-            //         })
-            //     }).catch((e) => {
-            //         console.log("error")
-            //         console.log(e);
-            //     })
-
+                    // course info
+                    courseName: '',
+                    courseNum: 0, // used as document class name in firebase
+                    courseProfFname: '',
+                    courseProfLname: '',
+                    courseProfName: '', 
+                    courseReview: '', // action item--use body
+                    courseRating: 0,
+                    id: 0,
+                })
             }).catch((e) => {
                 console.log("error")
                 console.log(e);
             })
 
-        // PUT (or GET + POST for now) email list (same logic as above)
-        // PUT (or GET + POST for now) consent to contact list (same logic as above)
-            
-            
+        }).catch((e) => {
+            console.log("error")
+            console.log(e);
+        })
 
-
-        // push to firebase
-        // console.log(this.state.userFname)
-        // console.log(this.state.userLname)
-        // console.log(this.state.userName)   
-        // console.log(this.state.userEmail)
-        // console.log(this.state.userList)
-        // console.log(this.state.courseProfName) 
-        // console.log(this.state.courseReview)
-        // console.log(this.state.myRef.current.value)
-        // console.log(dartcsclasses[this.state.myRef.current.value])
-        // console.log(this.state.courseRating)
-        // console.log(this.state.userEmailList)
-        // console.log(this.state.userContactList)
-
-        }
+    }
 
 
 
@@ -283,7 +261,7 @@ class UserClassForm extends React.Component {
                         {/* <Button variant="success">add another class review</Button> */}
 
 
-                        <Button onClick={this.submitFunc} variant="primary" type="submit">
+                        <Button onClick={() => {this.submitFunc()}} variant="primary" >
                             Submit
                         </Button>
                     </Form>

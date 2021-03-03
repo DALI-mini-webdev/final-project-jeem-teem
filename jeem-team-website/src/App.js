@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './jcustom.css';
 import { NavLink } from 'react-router-dom';
 import Logo from'./components/jeem-logo.png'
-import Classes from './components/Classes';
+// import Classes from './components/Classes';
 import Landing from './components/Landing';
 import Home from './components/Home';
 import UserClassForm from './components/UserClassForm';
@@ -25,9 +25,7 @@ function App() {
     <Router>
       <Navbar bg="white" expand="lg">
         <Navbar.Brand as={NavLink} to={'/home'}>
-        <a class="navbar-brand" href="#">
-            <img src={Logo} class="img-responsive" alt="WiCS Database" />
-        </a>          
+            <img src={Logo} className="img-responsive" alt="WiCS Database" />
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
