@@ -19,7 +19,11 @@ class Home extends React.Component {
                 <img className="BackgroundImage" src={background} alt=""/>
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
+<<<<<<< HEAD
+                    <title className="subtitle">We have compiled this resource for future women in computer science.</title>
+=======
                     <title className="subtitle">We have compiled this for future women in computer science.</title>
+>>>>>>> e36e963c9a679f43732023c3fe907ff104c89531
                     <a href="http://localhost:3000/all-classes">
                         <button className="btn btn-default btn-lg CTA">let's go!</button>
                         </a>
