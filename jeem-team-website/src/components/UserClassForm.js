@@ -13,7 +13,7 @@ class UserClassForm extends React.Component {
             // specfic user info
             userFname: '',
             userLname: '',
-            userName: '', 
+            userName: '',
             userEmail: '',
             // userId: 0,
             contacted: false,
@@ -28,7 +28,7 @@ class UserClassForm extends React.Component {
             courseNum: 0, // used as document class name in firebase
             courseProfFname: '',
             courseProfLname: '',
-            courseProfName: '', 
+            courseProfName: '',
             courseReview: '', // action item--use body
             courseRating: 0,
             myRef: React.createRef(), // for form select 
@@ -40,14 +40,12 @@ class UserClassForm extends React.Component {
     setFirstName = (event) => {
         this.setState({
             userFname: event.target.value,
-            userName: event.target.value,
         })
     }
 
     setLastName = (event) => {
         this.setState({
             userLname: event.target.value,
-            userName: this.state.userName + " " + event.target.value,
         })
     }
 
@@ -63,13 +61,14 @@ class UserClassForm extends React.Component {
         this.setState({
             courseProfFName: event.target.value,
             courseProfName: event.target.value,
+
         })
     }
 
     setProfLName = (event) => {
         this.setState({
-            courseProfLName: event.target.value,
-            courseProfName: this.state.courseProfName + " " + event.target.value,
+            courseProfLname: event.target.value,
+            courseProfName: this.state.courseProfName + " " + event.target.value, // tom c co cor corm corme cormen
         })
     }
 
@@ -103,69 +102,131 @@ class UserClassForm extends React.Component {
     //         })
     // }
 
-    submitFunc = () => {       
+    submitFunc = () => {
+        // set courseProfName and userName-- BUT async so doesn't work
+        this.setState({ 
+            courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname, 
+            userName: this.state.userFname + " " + this.state.userLname 
+        })
+        console.log(this.state.courseProfName)
+        console.log(this.state.userName)
+
+
         // PUT user list -- look @ link emma sent
-        // currently GET + POSTing to db, want PUT
-        console.log("submit")
-        
+        // currently GET + POSTing to db, want PUT    
+
+
         const tempUserList = [];
-        Firebase.firestore().collection('class-db').get()
-        .then((userListResponse) => { 
-            console.log("first.then()")
-            userListResponse.forEach(doc => { 
-                // console.log(doc.data());
-                tempUserList.push(doc.data())
-            })
-            
-            console.log(tempUserList, "temp user list");
+        // var docId = '';
+        // docId = Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).id
+        // console.log(docId)
 
-            // add info to db
-            Firebase.firestore().collection('class-db').add({  
-                // id: this.state.id,
-                courseName: this.state.myRef.current.value,
-                courseNum: dartcsclasses[this.state.myRef.current.value],
-                courseProfName: this.state.courseProfName,
-                courseReview: this.state.courseReview,
-                userList: tempUserList,
-                // courseRating: this.state.courseRating, 
-                // emailList: this.state.userEmailList,
-                // userContactList: this.state.userContactList, 
-            })
-            .then(() => { 
-                console.log("logged")
-                this.setState({ 
-                    // specfic user info
-                    userFname: '',
-                    userLname: '',
-                    userName: '', 
-                    userEmail: '',
-                    // userId: 0,
-                    contacted: false,
-
-                    // user info assoc with this course
-                    userList: [],
-                    userEmailList: [],
-                    userContactList: [],
-
-                    // course info
-                    courseName: '',
-                    courseNum: 0, // used as document class name in firebase
-                    courseProfFname: '',
-                    courseProfLname: '',
-                    courseProfName: '', 
-                    courseReview: '', // action item--use body
-                    courseRating: 0,
-                    id: 0,
+        Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).get()
+            .then((prevClassDoc) => {
+                // prevClass.forEach(doc => { 
+                //     // console.log(doc.data());
+                //     tempUserList.push(doc.userList.data())
+                // })
+                this.setState({
+                    tempUserList: prevClassDoc.userList
                 })
+
+                console.log(prevClassDoc) // BUG--- no data even tho doc alr exists? [high priority]
+                console.log(tempUserList)
+                console.log(prevClassDoc.exists, "exost") // BUG --- undefined 
+
+                // add info to db
+                if (prevClassDoc.exists) { // if doc alr exists, just need to update
+                    Firebase.firestore().collection('class-db').update({
+                        courseProfName: this.state.courseProfName,
+                        courseReview: this.state.courseReview,
+                        userList: tempUserList,
+                        // courseRating: this.state.courseRating, 
+                        // emailList: this.state.userEmailList,
+                        // userContactList: this.state.userContactList, 
+                    })
+                        .then(() => {
+                            console.log("logged else")
+                            this.setState({
+                                // specfic user info
+                                userFname: '',
+                                userLname: '',
+                                userName: '',
+                                userEmail: '',
+                                // userId: 0,
+                                contacted: false,
+
+                                // user info assoc with this course
+                                userList: [],
+                                userEmailList: [],
+                                userContactList: [],
+
+                                // course info
+                                courseName: '',
+                                courseNum: 0, // used as document class name in firebase
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseProfName: '',
+                                courseReview: '', // action item--use body
+                                courseRating: 0,
+                                id: 0,
+                            })
+                        }).catch((e) => {
+                            console.log("error")
+                            console.log(e);
+                        })
+
+
+                }
+                else { // doesn't alr exist in firebase -- add new doc
+                    Firebase.firestore().collection('class-db').add({
+                        // id: this.state.id,
+                        courseName: this.state.myRef.current.value,
+                        courseNum: dartcsclasses[this.state.myRef.current.value],
+                        courseProfName: this.state.courseProfName,
+                        courseReview: this.state.courseReview,
+                        userList: tempUserList,
+                        // courseRating: this.state.courseRating, 
+                        // emailList: this.state.userEmailList,
+                        // userContactList: this.state.userContactList, 
+                    })
+                        .then(() => {
+                            console.log("logged")
+                            this.setState({
+                                // specfic user info
+                                userFname: '',
+                                userLname: '',
+                                userName: '',
+                                userEmail: '',
+                                // userId: 0,
+                                contacted: false,
+
+                                // user info assoc with this course
+                                userList: [],
+                                userEmailList: [],
+                                userContactList: [],
+
+                                // course info
+                                courseName: '',
+                                courseNum: 0, // used as document class name in firebase
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseProfName: '',
+                                courseReview: '', // action item--use body
+                                courseRating: 0,
+                                id: 0,
+                            })
+                        }).catch((e) => {
+                            console.log("error")
+                            console.log(e);
+                        })
+                }
+
+
             }).catch((e) => {
                 console.log("error")
                 console.log(e);
             })
-
-        }).catch((e) => {
-            console.log("error")
-            console.log(e);
-        })
 
     }
 
@@ -261,7 +322,7 @@ class UserClassForm extends React.Component {
                         {/* <Button variant="success">add another class review</Button> */}
 
 
-                        <Button onClick={() => {this.submitFunc()}} variant="primary" >
+                        <Button onClick={this.submitFunc} variant="primary" >
                             Submit
                         </Button>
                     </Form>
