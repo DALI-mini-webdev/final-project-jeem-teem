@@ -143,7 +143,7 @@ class Contact extends Component{
                         <Form.Control onChange={this.setMessage} value={this.state.message} as="textarea" rows={3} placeholder="Write your message here. . ." />
                     </Form.Group>
 
-                    <Button onClick={(e) => {e.preventDefault(); this.sendEmail()}} variant="primary" type="submit">
+                    <Button onClick={(e) => {e.preventDefault(); this.sendEmail()}} className="CTA" variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>

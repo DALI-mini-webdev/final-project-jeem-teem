@@ -5,7 +5,6 @@ font-family: 'Roboto Mono', monospace;
 font-family: 'Roboto Slab', serif; 
 */
 
-
 .App {
   background-color: #455A3E;
   padding: 10px;
@@ -68,11 +67,12 @@ color: grey;
 .scrollIcon{
   font-size: 5vw;
   color: white;
+  transform: translateY(60px);
 }
 
 .scrollIcon:hover {
   transition: transform 1s ease;
-  transform: translateY(10px);
+  transform: translateY(70px);
   transition: transform 1s ease;
 }
 
@@ -113,11 +113,12 @@ button:hover {
   display: inline-block;
   margin: 1.5rem;
   cursor: pointer;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
 }
 
 .CTA:hover {
-  background-color: #C2D1BD;
+  background-color: #9bb194;
+  color: #2F452E
 }
 
 .flex-container {
@@ -146,7 +147,6 @@ button:hover {
 
 .LandingPage{
   display: flex;
-  margin: 10px;
   min-height: 100vh;
   width: 100vw;
   flex-direction: column;
