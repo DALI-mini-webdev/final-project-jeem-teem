@@ -8,7 +8,6 @@
 //         this.state = {};
 //     }
 
-//     var allClasses : [];
 
 //     componentDidMount(){
 //         if (this.props.match.params.classnumber){
