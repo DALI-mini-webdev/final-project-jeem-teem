@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../jcustom.css";
 import "./form.css";
 import React from 'react';
-import firebase from '../firebase/index';
+import Firebase from '../firebase/index';
 import dartcsclasses from '../csclasses';
 
 class UserClassForm extends React.Component {
@@ -13,26 +13,23 @@ class UserClassForm extends React.Component {
             // specfic user info
             userFname: '',
             userLname: '',
-            userName: this.fname + " " + this.lname,
             userEmail: '',
-            // userId: 0,
             contacted: false,
 
-            // user info assoc with this course
+            // user-specific info assoc with this course
             userList: [],
             userEmailList: [],
             userContactList: [],
+            courseProfFname: '',
+            courseProfLname: '',
+            courseReview: '', // action item--use body
+            myRef: React.createRef(), // for form select input
 
             // course info
             courseName: '',
-            courseNum: 0, // used as document class name in firebase
-            courseProfFname: '',
-            courseProfLname: '',
-            courseProfName: this.courseProfFname + " " + this.courseProfLname,
-            courseReview: '', // action item--use body
-            courseRating: 0,
-            myRef: React.createRef(), // for form select 
+            courseNum: 0, // used as document identifier in firebase
             id: 0,
+            // courseRating: 0,
         };
     }
 
@@ -45,27 +42,27 @@ class UserClassForm extends React.Component {
 
     setLastName = (event) => {
         this.setState({
-            userLname: event.target.value
+            userLname: event.target.value,
         })
     }
 
     setEmail = (event) => {
         this.setState({
             userEmail: event.target.value
-            // ANY DARTMOUTH API TO VERIFY IT'S AN ACTUAL D EMAIL? 
+            // ANY DARTMOUTH API TO VERIFY IT'S AN ACTUAL D EMAIL? regex? 
         })
     }
 
     // prof info funcs
     setProfFName = (event) => {
         this.setState({
-            courseProfFName: event.target.value
+            courseProfFname: event.target.value,
         })
     }
 
     setProfLName = (event) => {
         this.setState({
-            courseProfLName: event.target.value
+            courseProfLname: event.target.value,
         })
     }
 
@@ -77,12 +74,24 @@ class UserClassForm extends React.Component {
 
     }
 
-    // updateRating = (event) => {  // IN PROGRESS
+    contactConsentFunc = (event) => {
+        if (event.target.value === "yes") {
+            this.setState({
+                contacted: true,
+            })
+        }
+        else if (event.target.value === "no") {
+            this.setState({
+                contacted: false,
+            })
+        }
+    }
+
+    // updateRating = (event) => {  // ON BACKBURNER
     //     firebase.db.collection('class-db').where(this.state.courseNum, '==', "courseNum").get()
     //         .then((querySnapshot) => {
     // console.log(querySnapshot)
     // const courseRating = querySnapshot.docs[0].ref
-    // DOES "WHERE" HAVE TO COMPARE IDs? CAN DO COURSENUM INSTEAD? 
     // this.courseRating = firebase.db.courseNum.rating
 
 
@@ -93,147 +102,139 @@ class UserClassForm extends React.Component {
     //     this.state.courseRating -= 1
     // }
 
-    // .then(() => {  // PUT?? update courseRating field in the document 
+    // .then(() => {  // PUT? update courseRating field in the document 
     //    firebase.db.courseNum.courseRating: this.courseRating
     // }) 
     //         })
     // }
 
-
-    // submitFunc = () => {
-    //     // course info state vars
-    //     console.log("selected course (ref)", this.state.myRef.current.value)
-    //     console.log("pre-setState courseNum", this.state.courseNum)
-    //     this.setState({
-    //         courseName: this.state.myRef.current.value,
-    //         courseNum: dartcsclasses[this.state.myRef.current.value]
-    //     })
-
-
-    //     // PUT user list -- look @ link emma sent
-    //     // currently POSTing to db, want PUT
-    //     const tempUserList = []
-    //     const tempUserEmailList = []
-    //     const tempUserContactList = []
-    //     firebase.db.collection('class-db').where(this.state.courseNum, '==', "courseNum").get()
-    //         .then(query => {
-    //             query.forEach(doc => {
-    //                 //user list
-    //                 console.log(doc.userList.data());
-    //                 tempUserList.push(doc.userList.data());
-    //                 // console.log(tempUserList)
-
-    //                 // email list 
-    //                 console.log(doc.userList.data());
-    //                 tempUserEmailList.push(doc.userEmailList.data());
-    //                 // console.log(tempUserEmailList)
-
-    //                 // contact  list 
-    //                 console.log(doc.userList.data());
-    //                 tempUserContactList.push(doc.userContactList.data());
-    //                 // console.log(tempUserContactList)
-
-    //             })
-    //         }).then(() => {
-    //             this.setState({
-    //                 userList: tempUserList
-    //             })
-
-    //             // push to firebase
-    //             console.log(this.state.userFname)
-    //             console.log(this.state.userLname)
-    //             console.log(this.state.userEmail)
-    //             console.log(this.state.courseProfFName)
-    //             console.log(this.state.courseProfLName)
-    //             console.log(this.state.courseReview)
-    //             // console.log(this.state.courseName)
-    //             // console.log(this.state.courseNum)
-
-    //             firebase.db.collection('class-db').add({
-    //                 courseName: this.state.myRef.current.value,
-    //                 courseNum: dartcsclasses[this.state.myRef.current.value],
-    //                 courseProfName: this.state.courseProfName,
-    //                 courseReview: this.state.courseReview,
-    //                 userList: this.state.userList,
-    //                 // courseRating: this.state.courseRating, 
-    //                 // emailList: this.state.userEmailList,
-    //                 // userContactList: this.state.userContactList, 
-    //             }).then(ref => {
-    //                 console.log('document reference id', ref.id)
-    //                 this.setState({
-    //                     id: this.state.id + 1
-    //                 })
-    //             }) //.catch((e) => {
-    //             //     console.log(e);
-    //             // })
-
-
-    //         }).catch((e) => {
-    //             console.log("error")
-    //             console.log(e);
-    //         })
-
-
-    // }
     submitFunc = () => {
         // PUT user list -- look @ link emma sent
-        // currently POSTing to db, want PUT
-        const tempUserList = []
-        firebase.db.collection('class-db').get()
-            .then(query => {
-                query.forEach(doc => {
-                    console.log(doc.data());
-                    tempUserList.push(doc.data());
-                    console.log(tempUserList)
-                })
-            }).then(() => {
+        // currently GET + POSTing to db, want PUT    
+        const tempUserList = [];
+        const tempEmailList = [];
+        const tempContactConsentList = [];
+        const tempProfList = [];
+        const tempReviewList = [];
+
+        // var docId = '';
+        // docId = Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).id
+        // console.log(docId)
+
+        Firebase.firestore().collection('class-db').where("courseNum", "==", dartcsclasses[this.state.myRef.current.value]).get()
+            .then((prevClassDoc) => {
+                // update 
                 this.setState({
-                    userList: tempUserList 
+                    tempUserList: prevClassDoc.userList,
+                    tempEmailList: prevClassDoc.emailList,
+                    tempContactConsentList: prevClassDoc.userContactList,
                 })
+                tempUserList.push(`${this.state.userFname} ${this.state.userLname}`)
+                tempEmailList.push(`${this.state.userEmail}`)
+                tempContactConsentList.push(this.state.contacted)
+                tempProfList.push(`${this.state.courseProfFname} ${this.state.courseProfLname}`)
+                tempReviewList.push(`${this.state.courseReview}`)
+
+                // testing
+                // console.log(prevClassDoc) // BUG --- no data even tho doc alr exists? [high priority]
+                // console.log(tempUserList)
+                // console.log(prevClassDoc.exists, "exist") // BUG --- undefined, method doesn't work?  
+
+                // add or update info to db, dependent upon if class alr existing in db 
+                if (prevClassDoc.exists) { // BUG --- DOESN'T WORK (use else in this if-else statement); if doc alr exists, just need to update
+                    console.log("UNEXPECTED doc exists")
+                    Firebase.firestore().collection('class-db').update({
+                        courseProfName: this.state.courseProfName,
+                        courseReview: this.state.courseReview,
+                        userList: tempUserList,
+                        // courseRating: this.state.courseRating, 
+                        emailList: tempEmailList,
+                        userContactList: tempContactConsentList,
+                    })
+
+                        .then(() => {
+                            this.setState({
+                                // specfic user info
+                                userFname: '',
+                                userLname: '',
+                                userEmail: '',
+                                contacted: false,
+
+                                // user-specific info assoc with this course
+                                userList: [],
+                                userEmailList: [],
+                                userContactList: [],
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseReview: '', // action item--use body
+                                myRef: React.createRef(), // for form select input
+
+                                // course info
+                                courseName: '',
+                                courseNum: 0, // used as document identifier in firebase
+                                id: 0,
+                                // courseRating: 0, 
+                            })
+                        }).catch((e) => {
+                            console.log("error")
+                            console.log(e);
+                        })
+
+
+                }
+                else { // doesn't alr exist in firebase -- add new doc
+                    console.log("EXPECTED doc DNE")
+                    Firebase.firestore().collection('class-db').add({
+                        // id: this.state.id,
+                        courseName: this.state.myRef.current.value,
+                        courseNum: dartcsclasses[this.state.myRef.current.value],
+                        // courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname,
+                        // courseReview: this.state.courseReview,
+                        courseProfList: tempProfList,
+                        courseReviewList: tempReviewList,
+                        userList: tempUserList,
+                        // courseRating: this.state.courseRating, 
+                        emailList: tempEmailList,
+                        userContactList: tempContactConsentList,
+                    })
+                        .then(() => {
+
+                            this.setState({
+                                // specfic user info
+                                userFname: '',
+                                userLname: '',
+                                userEmail: '',
+                                contacted: false,
+
+                                // user-specific info assoc with this course
+                                userList: [],
+                                userEmailList: [],
+                                userContactList: [],
+                                courseProfFname: '',
+                                courseProfLname: '',
+                                courseReview: '', // action item--use body
+                                myRef: React.createRef(), // for form select input
+
+                                // course info
+                                courseName: '',
+                                courseNum: 0, // used as document identifier in firebase
+                                id: 0,
+                                // courseRating: 0,
+                            })
+                        }).catch((e) => {
+                            console.log("error")
+                            console.log(e);
+                        })
+                }
             }).catch((e) => {
                 console.log("error")
                 console.log(e);
             })
-        // PUT email list (same logic as above)
-        // PUT consent to contact list (same logic as above)
-        // course selection
-        console.log("selected course (ref)", this.state.myRef.current.value)
-        console.log("pre-setState courseNum", this.state.courseNum)
-        this.setState({ 
-            courseName: this.state.myRef.current.value, 
-            courseNum: dartcsclasses[this.state.myRef.current.value]
-        })
-        // push to firebase
-        console.log(this.state.userFname) 
-        console.log(this.state.userLname)
-        console.log(this.state.userEmail)
-        console.log(this.state.courseProfFName)
-        console.log(this.state.courseProfLName)
-        console.log(this.state.courseReview)
-        // console.log("post-setState courseName", this.state.courseName)
-        // console.log("post-setState courseNum", this.state.courseNum)
-        firebase.db.collection('class-db').add({ 
-            courseName: this.state.courseName,
-            courseNum: this.state.courseNum,
-            courseProfName: this.state.courseProfName,
-            // courseRating: this.state.courseRating, 
-            courseReview: this.state.courseReview,
-            // emailList: this.state.userEmailList,
-            // userContactList: this.state.userContactList, 
-            // userList: this.state.userList,
-        }).then(ref => { 
-            console.log('document reference id', ref.id)
-            this.setState ({ 
-                id: this.state.id + 1
-            }) 
-        }).catch((e) => { 
-            console.log(e);
-        })
     }
 
+
+
     render() {
-
-
         return (
             <div>
                 <div className="form">
@@ -264,7 +265,7 @@ class UserClassForm extends React.Component {
 
 
                         {/* class info */}
-                        <h4>Course Info</h4>
+                        <h4 className="header">Course Info</h4>
 
                         {/* drop down select for class */}
                         <Form.Group controlId="exampleForm.ControlSelect1">
@@ -273,7 +274,7 @@ class UserClassForm extends React.Component {
                                 {/* dart cs classes */}
                                 {Object.keys(dartcsclasses).map((course) => {
                                     return (
-                                        <option>{course}</option>
+                                        <option key={course}>{course}</option>
                                     )
                                 }
                                 )}
@@ -308,13 +309,13 @@ class UserClassForm extends React.Component {
 
 
                         {/* consent to contact (Y/N) */}
-                        {/* <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (if yes, we will display your email address)</Form.Label>
+                        <Form.Label>Do you want to be contacted with questions regarding your review and class experience? (If yes, we will display your email address.)</Form.Label>
                         {['radio'].map((type) => (
                             <div key={`inline-${type}`} className="mb-3">
-                                <Form.Check inline label="Yes" type={type} id={`inline-${type}-yes`} />
-                                <Form.Check inline label="No" type={type} id={`inline-${type}-no`} />
+                                <Form.Check onClick={this.contactConsentFunc} name="rating" label="Yes" value="yes" type={type} inline id={`inline-${type}-yes`} />
+                                <Form.Check onClick={this.contactConsentFunc} name="rating" label="No" value="no" type={type} inline id={`inline-${type}-no`} />
                             </div>
-                        ))} */}
+                        ))}
 
                         {/* button for deleting this review*/}
                         {/* <Button variant="danger">delete this class review</Button> */}
@@ -323,7 +324,7 @@ class UserClassForm extends React.Component {
                         {/* <Button variant="success">add another class review</Button> */}
 
 
-                        <Button onClick={this.submitFunc} variant="primary" type="submit">
+                        <Button onClick={this.submitFunc} variant="primary" >
                             Submit
                         </Button>
                     </Form>

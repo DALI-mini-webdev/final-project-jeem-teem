@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../jcustom.css'
 import React from 'react';
 import background from "../images/Rectangle 1.jpg";
+import {ChevronDownIcon} from '@primer/octicons-react'
+
 
 
 class Home extends React.Component {
@@ -13,15 +15,15 @@ class Home extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="Home">
                 <img className="BackgroundImage" src={background} alt=""/>
-
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
                     <title className="subtitle">We have compiled this for future women in computer science.</title>
                     <a href="http://localhost:3000/all-classes">
-                        <button class="btn btn-default btn-lg CTA">let's go!</button>
+                        <button className="btn btn-default btn-lg CTA">let's go!</button>
                         </a>
+                    <title className="scrollIcon"><ChevronDownIcon size={36} /></title>
                     <br></br>
                    
                 </div>
@@ -60,11 +62,11 @@ class Home extends React.Component {
                 </li>
                 <li class="flex-item">
                     <p><span class="bold">Ella Gates</span></p>
-                    <p></p>
+                    <p>Ella Gates is a '24 at Dartmouth College studying computer science and linguistics.</p>
                     <a href="https://github.com/ellajanegates">
                     <button>GitHub</button>
                     </a>
-                    <a href="http://instagram.com">
+                    <a href="http://instagram.com/ellajanegates">
                     <button>IG</button>
                     </a>
                 </li>
