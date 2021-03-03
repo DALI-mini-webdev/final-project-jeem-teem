@@ -23,54 +23,32 @@ class Home extends React.Component {
                     <a href="http://localhost:3000/all-classes">
                         <button className="btn btn-default btn-lg CTA">let's go!</button>
                         </a>
-                    <title className="scrollIcon"><ChevronDownIcon size={36} /></title>
-                    <br></br>
-                   
+                    <title className="scrollIcon"><ChevronDownIcon size={36} /></title>                   
                 </div>
 
             <div>
-                <Jumbotron>
+            <div className="HomeHeader">
+
                     <div>
                     <title>We are JEEM.</title>
                     </div>
-                    
-                    <div>
-                    <exp>We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</exp>
-                    </div>
+                    <p>  We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</p>
                     <a href="https://www.instagram.com/dartmouthwics">
                     <button>Check out WiCS happenings!</button>
                     </a>
-                    <div></div>
-                    <div>
-                    <exp><br></br>This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</exp>
-                    </div>
+                    <p><br></br></p>
+                 
+                    <p>  This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</p>
                     <a href="https://students.dartmouth.edu/wisp/">
                     <button>Check out WiSP!</button>
                     </a>
-                    
-                   
-                    <br></br>
+                    <p><br></br></p>
 
-                </Jumbotron>
+                    </div>
 
             <ul class="flex-container">
                 <li class="flex-item">
-                    <p><span class="bold">Liz Frey</span></p>
-                    <a href="https://github.com/lizfrey">
-                    <button>GitHub</button>
-                    </a>
-                </li>
-                <li class="flex-item">
-                    <p><span class="bold">Ella Gates</span></p>
-                    <p>Ella Gates is a '24 at Dartmouth College studying computer science and linguistics.</p>
-                    <a href="https://github.com/ellajanegates">
-                    <button>GitHub</button>
-                    </a>
-                    <a href="http://instagram.com/ellajanegates">
-                    <button>IG</button>
-                    </a>
-                </li>
-                <li class="flex-item">
+                <p><br></br></p>
                     <p><span class="bold">Judy Guo</span></p>
                     <p>Judy Guo is a ’24 at Dartmouth College, very undecided but exploring economics, anthropology, and human-centered design.
                     </p>
@@ -81,8 +59,32 @@ class Home extends React.Component {
                     <button>IG</button>
                     </a>
                     </li>
-                                   
+
                 <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Ella Gates</span></p>
+                    <p>Ella Gates is a '24 at Dartmouth College studying computer science and linguistics.</p>
+                    <a href="https://github.com/ellajanegates">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/ellajanegates">
+                    <button>IG</button>
+                    </a>
+                </li>    
+
+                
+                <li class="flex-item">
+                <p><br></br></p>
+                    <p><span class="bold">Liz Frey</span></p>
+                    <p>Liz Frey is a '24 at Dartmouth College studying computer science and neuroscience.</p>
+                    <a href="https://github.com/lizfrey">
+                    <button>GitHub</button>
+                    </a>
+                </li>
+
+
+                <li class="flex-item">
+                <p><br></br></p>
                     <p><span class="bold">Megan Liu</span></p>
                     <p>Megan Liu is a '24 at Dartmouth studying Computer Science and Neuroscience. She likes to play soccer, paddle, and snowboard. 
                     </p>
@@ -92,6 +94,9 @@ class Home extends React.Component {
                     <a href="http://instagram.com/megasaurus31">
                     <button>IG</button>
                     </a>
+                    <p><br></br></p>
+                    <p><br></br></p>
+
                 </li>
             </ul>
                 
