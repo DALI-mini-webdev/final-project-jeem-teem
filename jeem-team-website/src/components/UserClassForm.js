@@ -105,8 +105,8 @@ class UserClassForm extends React.Component {
     submitFunc = () => {
         // set courseProfName and userName-- BUT async so doesn't work
         this.setState({ 
-            courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname, 
-            userName: this.state.userFname + " " + this.state.userLname 
+            //courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname, 
+            //userName: this.state.userFname + " " + this.state.userLname 
         })
         console.log(this.state.courseProfName)
         console.log(this.state.userName)
@@ -133,14 +133,14 @@ class UserClassForm extends React.Component {
 
                 console.log(prevClassDoc) // BUG--- no data even tho doc alr exists? [high priority]
                 console.log(tempUserList)
-                console.log(prevClassDoc.exists, "exost") // BUG --- undefined 
+                console.log(prevClassDoc.exists, "exist") // BUG --- undefined 
 
                 // add info to db
                 if (prevClassDoc.exists) { // if doc alr exists, just need to update
                     Firebase.firestore().collection('class-db').update({
                         courseProfName: this.state.courseProfName,
                         courseReview: this.state.courseReview,
-                        userList: tempUserList,
+                        userList: tempUserList.push(this.state.userList),
                         // courseRating: this.state.courseRating, 
                         // emailList: this.state.userEmailList,
                         // userContactList: this.state.userContactList, 
@@ -151,13 +151,13 @@ class UserClassForm extends React.Component {
                                 // specfic user info
                                 userFname: '',
                                 userLname: '',
-                                userName: '',
+                                userName: this.state.userFname + " " + this.state.userLname,
                                 userEmail: '',
                                 // userId: 0,
                                 contacted: false,
 
                                 // user info assoc with this course
-                                userList: [],
+                                userList: [].push(this.state.userName),
                                 userEmailList: [],
                                 userContactList: [],
 
@@ -183,7 +183,7 @@ class UserClassForm extends React.Component {
                         // id: this.state.id,
                         courseName: this.state.myRef.current.value,
                         courseNum: dartcsclasses[this.state.myRef.current.value],
-                        courseProfName: this.state.courseProfName,
+                        courseProfName: this.state.courseProfFname + " " + this.state.courseProfLname,
                         courseReview: this.state.courseReview,
                         userList: tempUserList,
                         // courseRating: this.state.courseRating, 
@@ -196,13 +196,13 @@ class UserClassForm extends React.Component {
                                 // specfic user info
                                 userFname: '',
                                 userLname: '',
-                                userName: '',
+                                userName: this.state.userFname + " " + this.state.userLname,
                                 userEmail: '',
                                 // userId: 0,
                                 contacted: false,
 
                                 // user info assoc with this course
-                                userList: [],
+                                userList: [].push(this.state.userName),
                                 userEmailList: [],
                                 userContactList: [],
 
