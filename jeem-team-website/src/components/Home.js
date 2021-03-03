@@ -33,18 +33,19 @@ class Home extends React.Component {
                     </div>
                     
                     <div>
+                    <exp>We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</exp>
+                    </div>
+                    <a href="https://www.instagram.com/dartmouthwics/s">
+                    <button>Check out WiCS happenings!</button>
+                    </a>
+                    <div></div>
+                    <div>
                     <exp>This was built as our project for our dali-wisp final project. Check out our bios below, and have fun exploring our site!</exp>
                     </div>
                     <a href="https://students.dartmouth.edu/wisp/">
                     <button>Check out WiSP!</button>
                     </a>
                     
-                    <div>
-                    <exp>We hope to connect and inspire women in computer science. This site serves as a homebase for our community and a catalog of Dartmouth CS classes.</exp>
-                    </div>
-                    <a href="https://www.instagram.com/dartmouthwics/s">
-                    <button>Check out WiCS happenings!</button>
-                    </a>
                    
                     <br></br>
 
@@ -53,25 +54,42 @@ class Home extends React.Component {
             <ul class="flex-container">
                 <li class="flex-item">
                     <p><span class="bold">Liz Frey</span></p>
+                    <a href="https://github.com/lizfrey">
+                    <button>GitHub</button>
+                    </a>
                 </li>
                 <li class="flex-item">
                     <p><span class="bold">Ella Gates</span></p>
                     <p></p>
+                    <a href="https://github.com/ellajanegates">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com">
+                    <button>IG</button>
+                    </a>
                 </li>
                 <li class="flex-item">
                     <p><span class="bold">Judy Guo</span></p>
-                    <p>I'm a '24!</p>
-                    {/* <p>A ’24 at Dartmouth College, undecided but exploring economics, anthropology, and human-centered design.
-                    </p> */}
+                    <p>Judy Guo is a ’24 at Dartmouth College, very undecided but exploring economics, anthropology, and human-centered design.
+                    </p>
                     <a href="http://github.com/judy-guo">
                     <button>GitHub</button>
                     </a>
                     <a href="http://instagram.com/j.j.guo">
                     <button>IG</button>
                     </a>
-                </li>
+                    </li>
+                                   
                 <li class="flex-item">
                     <p><span class="bold">Megan Liu</span></p>
+                    <p>Megan Liu is a '24 at Dartmouth studying Computer Science and Neuroscience. She likes to play soccer, paddle, and snowboard. 
+                    </p>
+                    <a href="https://github.com/mliu31">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/megasaurus31">
+                    <button>IG</button>
+                    </a>
                 </li>
             </ul>
                 
