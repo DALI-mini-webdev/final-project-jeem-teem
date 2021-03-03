@@ -10,6 +10,11 @@ font-family: 'Roboto Slab', serif;
   background-color: #455A3E;
   padding: 10px;
 }
+/* .Home {
+  background-color: #7ba36f79;
+  position: absolute;
+  z-index: -4;
+} */
 
 .navdisplay {
   display: flex;
@@ -43,7 +48,7 @@ color: grey;
 }
 
 .whiteText{
-  font-size: calc(8rem);
+  font-size: 10vw;
   color: #fff;
 }
 
@@ -56,8 +61,19 @@ color: grey;
 }
 
 .subtitle{
-  font-size: 2rem;
+  font-size: 2vw;
   color: white;
+}
+
+.scrollIcon{
+  font-size: 5vw;
+  color: white;
+}
+
+.scrollIcon:hover {
+  transition: transform 1s ease;
+  transform: translateY(10px);
+  transition: transform 1s ease;
 }
 
 .body1 {
@@ -130,8 +146,9 @@ button:hover {
 
 .LandingPage{
   display: flex;
-  height: 600px;
-  width: 100%;
+  margin: 10px;
+  min-height: 100vh;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -142,7 +159,8 @@ button:hover {
   top: 0;
   left: 0;
   z-index: -1;
-  max-width: fit-content;
+  max-width: 100vw;
+  height: auto;
 }
 
 .img-responsive {
