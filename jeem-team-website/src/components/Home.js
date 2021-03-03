@@ -55,9 +55,23 @@ class Home extends React.Component {
 
             <ul class="flex-container">
                 <li class="flex-item">
-                    <p><span class="bold">Liz Frey</span></p>
+                    <p><span class="bold">Judy Guo</span></p>
+                    <p>Judy Guo is a ’24 at Dartmouth College, very undecided but exploring economics, anthropology, and human-centered design.
+                    </p>
+                    <a href="http://github.com/judy-guo">
+                    <button>GitHub</button>
+                    </a>
+                    <a href="http://instagram.com/j.j.guo">
+                    <button>IG</button>
+                    </a>
+                    </li>
+                <li class="flex-item">
+                    <p><span class="bold">Elizabeth Frey</span></p>
                     <a href="https://github.com/lizfrey">
                     <button>GitHub</button>
+                    <a href="http://instagram.com/lizwfrey">
+                    <button>IG</button>
+                    </a>
                     </a>
                 </li>
                 <li class="flex-item">
@@ -70,21 +84,10 @@ class Home extends React.Component {
                     <button>IG</button>
                     </a>
                 </li>
-                <li class="flex-item">
-                    <p><span class="bold">Judy Guo</span></p>
-                    <p>Judy Guo is a ’24 at Dartmouth College, very undecided but exploring economics, anthropology, and human-centered design.
-                    </p>
-                    <a href="http://github.com/judy-guo">
-                    <button>GitHub</button>
-                    </a>
-                    <a href="http://instagram.com/j.j.guo">
-                    <button>IG</button>
-                    </a>
-                    </li>
                                    
                 <li class="flex-item">
                     <p><span class="bold">Megan Liu</span></p>
-                    <p>Megan Liu is a '24 at Dartmouth studying Computer Science and Neuroscience. She likes to play soccer, paddle, and snowboard. 
+                    <p>Megan Liu is a '24 at Dartmouth studying computer science and neuroscience.  
                     </p>
                     <a href="https://github.com/mliu31">
                     <button>GitHub</button>
