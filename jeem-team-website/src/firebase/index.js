@@ -12,3 +12,4 @@ const Firebase = firebase.initializeApp({
 });
 
 export default Firebase 
+
