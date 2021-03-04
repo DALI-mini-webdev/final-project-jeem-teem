@@ -62,7 +62,7 @@ class Home extends React.Component {
                 <li class="flex-item">
                     <p><br></br></p>
                     <p><span class="bold">Elizabeth Frey</span></p>
-                    <p>Judy Guo is a ’24 at Dartmouth College, studying computer science and neuroscience.</p>
+                    <p>Elizabeth Frey is a ’24 at Dartmouth College, studying computer science and neuroscience.</p>
                     <a href="https://github.com/lizfrey">
                     <button>GitHub</button>
                     </a>
