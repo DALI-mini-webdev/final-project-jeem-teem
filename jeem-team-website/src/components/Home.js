@@ -19,7 +19,7 @@ class Home extends React.Component {
                 <img className="BackgroundImage" src={background} alt=""/>
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
-                    <title className="subtitle">We have compiled this for future women in computer science.</title>
+                    <title className="subtitle">We have compiled this resource for future women in computer science.</title>
                     <a href="http://localhost:3000/all-classes">
                         <button className="btn btn-default btn-lg CTA">let's go!</button>
                         </a>
@@ -62,13 +62,11 @@ class Home extends React.Component {
                 <li class="flex-item">
                     <p><br></br></p>
                     <p><span class="bold">Elizabeth Frey</span></p>
+                    <p>Elizabeth Frey is a ’24 at Dartmouth College, studying computer science and neuroscience.</p>
                     <a href="https://github.com/lizfrey">
                     <button>GitHub</button>
                     </a>
                     <a href="http://instagram.com/lizwfrey">
-                    <button>IG</button>
-                    </a>
-                    <a href="http://instagram.com/j.j.guo">
                     <button>IG</button>
                     </a>
                 </li>
