@@ -20,7 +20,7 @@ class Home extends React.Component {
                 <div className="LandingPage">
                     <title className="whiteText">Welcome</title>
                     <title className="subtitle">We have compiled this resource for future women in computer science.</title>
-                    <a href="http://localhost:3000/all-classes">
+                    <a href="http://jeem-teem-proj.surge.sh/all-classes">
                         <button className="btn btn-default btn-lg CTA">let's go!</button>
                         </a>
                     <title className="scrollIcon"><ChevronDownIcon size={36} /></title>                   
